@@ -1,16 +1,24 @@
 import React from "react"
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Space_Grotesk, DM_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+})
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
-  title: 'Apps by Me | Restory & Cumpli',
-  description: 'Portfolio de apps móviles: Restory - restauración de fotos con IA, y Cumpli - recordatorio de cumpleaños.',
-  generator: 'v0.app',
+  title: 'Trempido — Apps by Pau Pidelaserra',
+  description: 'Portfolio de apps móviles: Restory - restauración de fotos con IA, y Umi - recordatorio de cumpleaños.',
   icons: {
     icon: [
       {
@@ -36,8 +44,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`font-sans antialiased`}>
+    <html lang="es">
+      <body className={`${spaceGrotesk.variable} ${dmSans.variable} font-body antialiased`}>
         {children}
         <Analytics />
       </body>
