@@ -32,6 +32,13 @@ export const translations = {
   "apps.umi.tag.birthdays": { es: "Cumpleaños", en: "Birthdays" },
   "apps.umi.soon": { es: "Próximamente", en: "Coming Soon" },
   "apps.umi.cta": { es: "Saber más", en: "Learn more" },
+  "apps.kari.desc": {
+    es: "Tu gimnasio social por voz. Practica conversaciones reales hablando con una IA y recibe un informe de qué mejorar. Con base científica.",
+    en: "Your social gym, by voice. Practice real conversations out loud with an AI and get a report on what to improve. Backed by science.",
+  },
+  "apps.kari.tag.voice": { es: "Voz", en: "Voice" },
+  "apps.kari.tag.charisma": { es: "Carisma", en: "Charisma" },
+  "apps.kari.tag.ai": { es: "IA", en: "AI" },
 
   "about.title": { es: "Sobre mí", en: "About me" },
   "about.text": {

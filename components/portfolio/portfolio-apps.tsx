@@ -100,6 +100,48 @@ export function PortfolioApps() {
               </Link>
             </div>
           </div>
+
+          {/* Kari Card */}
+          <div className="group relative bg-gradient-to-br from-neutral-900 to-neutral-950 border border-neutral-800 rounded-3xl p-8 md:p-10 hover:border-neutral-700 transition-all duration-300 animate-fade-up delay-300">
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-orange-600/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+
+            <div className="relative">
+              <div className="flex items-start justify-between mb-6">
+                <Image
+                  src="/images/kari/logo.png"
+                  alt="Kari"
+                  width={72}
+                  height={72}
+                  className="rounded-2xl shadow-lg"
+                />
+                <span className="px-3 py-1 text-xs font-medium text-amber-400 bg-amber-400/10 border border-amber-400/20 rounded-full">
+                  {t("apps.umi.soon")}
+                </span>
+              </div>
+
+              <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-3">
+                Kari
+              </h3>
+              <p className="text-neutral-400 leading-relaxed mb-6">
+                {t("apps.kari.desc")}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-8">
+                <span className="px-3 py-1 text-xs text-neutral-300 bg-neutral-800 rounded-full">iOS</span>
+                <span className="px-3 py-1 text-xs text-neutral-300 bg-neutral-800 rounded-full">{t("apps.kari.tag.voice")}</span>
+                <span className="px-3 py-1 text-xs text-neutral-300 bg-neutral-800 rounded-full">{t("apps.kari.tag.charisma")}</span>
+                <span className="px-3 py-1 text-xs text-neutral-300 bg-neutral-800 rounded-full">{t("apps.kari.tag.ai")}</span>
+              </div>
+
+              <Link
+                href="/kari"
+                className="inline-flex items-center gap-2 text-white font-medium hover:text-amber-400 transition-colors"
+              >
+                {t("apps.umi.cta")}
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>
