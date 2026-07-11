@@ -6,7 +6,7 @@ import { KariNav, KariFooter, PageHeader } from "@/components/kari/chrome"
 import { Reveal } from "@/components/kari/reveal"
 
 export const metadata: Metadata = {
-  title: "Kari Pricing — Plans, Free Trial and Minute Packs",
+  title: "Kari Pricing — Weekly Plan, Annual Plan and Minute Packs",
   description:
     "Kari Pro is a subscription: weekly for trying it properly, annual for actually changing how you talk. Conversation time is measured in minutes, and you can top up with one-time minute packs. Exact prices in the App Store.",
   alternates: { canonical: "https://www.trempido.com/kari/pricing" },
