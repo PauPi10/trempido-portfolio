@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card"
 export const metadata = {
   title: "Terms of Service — Kari",
   description: "Terms of Service for Kari, the voice-based social-skills coaching app.",
+  alternates: { canonical: "https://www.trempido.com/kari/terms" },
 }
 
 export default function TermsPage() {

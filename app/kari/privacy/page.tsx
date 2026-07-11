@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card"
 export const metadata = {
   title: "Privacy Policy — Kari",
   description: "Privacy Policy for Kari, the voice-based social-skills coaching app.",
+  alternates: { canonical: "https://www.trempido.com/kari/privacy" },
 }
 
 export default function PrivacyPage() {

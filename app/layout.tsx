@@ -17,8 +17,9 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.trempido.com'),
   title: 'Trempido — Apps by Pau Pidelaserra',
-  description: 'Portfolio de apps móviles: Restory - restauración de fotos con IA, y Umi - recordatorio de cumpleaños.',
+  description: 'Portfolio de apps móviles: Kari - entrenadora de carisma por voz, Restory - restauración de fotos con IA, y Umi - recordatorio de cumpleaños.',
   icons: {
     icon: [
       {
