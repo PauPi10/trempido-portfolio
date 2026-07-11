@@ -138,7 +138,7 @@ export type RoleplayCategory = {
   name: string;
   count: number;
   blurb: string;
-  scenes: { emoji: string; title: string; character: string; mission: string }[];
+  scenes: { icon: string; title: string; character: string; mission: string }[];
 };
 
 // The 5 groups of the 160+ roleplay catalog, with real scenes from the app.
@@ -151,25 +151,25 @@ export const ROLEPLAY_CATEGORIES: RoleplayCategory[] = [
       "Approach someone cold, build chemistry, escape the friendzone or take a no with grace. Characters who get bored the second you sound scripted.",
     scenes: [
       {
-        emoji: "🍸",
+        icon: "Martini",
         title: "Cold approach at a bar",
         character: "Noa is out with her friends and bored of pickup lines.",
         mission: "Start a natural conversation and earn three minutes of real talk.",
       },
       {
-        emoji: "☕️",
+        icon: "Coffee",
         title: "Nail the first Tinder date",
         character: "Lía is sizing you up and drops trap topics: the ex, what you're looking for.",
         mission: "Turn the interrogation into a conversation with chemistry.",
       },
       {
-        emoji: "💔",
+        icon: "HeartCrack",
         title: "Get out of the friendzone",
         character: "Carla is your lifelong friend and doesn't see it coming.",
         mission: "Express your interest without pressure, protecting the friendship.",
       },
       {
-        emoji: "🚫",
+        icon: "CloudRain",
         title: "Take a no with elegance",
         character: "She's flattered but not interested, and watching how you react.",
         mission: "Accept it gracefully and leave a better impression than you came with.",
@@ -184,27 +184,27 @@ export const ROLEPLAY_CATEGORIES: RoleplayCategory[] = [
       "Job interviews, promotions, salary negotiation, hard feedback, saying no to your boss. Interlocutors with trap questions and tight budgets.",
     scenes: [
       {
-        emoji: "💼",
+        icon: "Briefcase",
         title: "Ace the job interview",
         character: "Elena from HR is friendly but hides trap questions.",
         mission: "Present your strengths with confidence, without sounding arrogant.",
       },
       {
-        emoji: "📈",
+        icon: "TrendingUp",
         title: "Make your case for a promotion",
         character: "Víctor, your boss, hides behind a limited budget.",
         mission: "Defend your value with data and ask for the promotion outright.",
       },
       {
-        emoji: "🛑",
+        icon: "OctagonX",
         title: "Say no to your boss",
         character: "Óscar overloads you by appealing to your commitment.",
         mission: "Decline the extra work with a viable, professional alternative.",
       },
       {
-        emoji: "💶",
-        title: "Negotiate your salary",
-        character: "The offer is “final”, until you make it not be.",
+        icon: "Coins",
+        title: "Negotiate your compensation",
+        character: "Marta plants herself on the initial offer and waits you out.",
         mission: "Raise the number without ultimatums and without folding first.",
       },
     ],
@@ -217,25 +217,25 @@ export const ROLEPLAY_CATEGORIES: RoleplayCategory[] = [
       "Pitch an investor, negotiate rent, get your money back or cancel a subscription without being talked out of it by retention.",
     scenes: [
       {
-        emoji: "💎",
+        icon: "Gem",
         title: "Win over a millionaire",
         character: "Mr. Soler has heard a thousand pitches; he gets bored and interrupts.",
         mission: "Hook him and earn five more minutes of the meeting.",
       },
       {
-        emoji: "✂️",
+        icon: "Scissors",
         title: "Cancel a subscription without being upsold",
         character: "Iker from retention uses aggressive offers and emotional blackmail.",
         mission: "Stay firm until he confirms your cancellation is processed.",
       },
       {
-        emoji: "🧸",
+        icon: "ToyBrick",
         title: "Convince a 3-year-old to share",
         character: "Teo shuts down completely: “it's mine” — pure toddler logic.",
         mission: "Get him to share without yelling, punishments or absurd bribes.",
       },
       {
-        emoji: "🏠",
+        icon: "House",
         title: "Negotiate the rent down",
         character: "The landlord insists the market is “on fire”.",
         mission: "Anchor low with reasons and close a real discount.",
@@ -250,25 +250,25 @@ export const ROLEPLAY_CATEGORIES: RoleplayCategory[] = [
       "The noisy neighbor, the line-cutter, the unfair group bill, the taxi driver taking the scenic route. Stand your ground without making a scene.",
     scenes: [
       {
-        emoji: "🔊",
+        icon: "Volume2",
         title: "Address the neighbor's noise",
         character: "Toni gets defensive: in his house he does what he wants.",
         mission: "Get the music down now, without starting a neighborhood war.",
       },
       {
-        emoji: "🧾",
+        icon: "Receipt",
         title: "Push back on the group bill",
         character: "Hugo pressures everyone to split evenly and calls you cheap.",
         mission: "Pay only your share, naturally and firmly.",
       },
       {
-        emoji: "🚶",
+        icon: "Footprints",
         title: "Defend your place in line",
         character: "He cuts in and plays dumb.",
         mission: "Reclaim your spot firmly, without a scene.",
       },
       {
-        emoji: "🚕",
+        icon: "CarTaxiFront",
         title: "The scenic-route taxi",
         character: "The meter keeps running while he swears it's a shortcut.",
         mission: "Get back on the direct route without an argument.",
@@ -283,26 +283,26 @@ export const ROLEPLAY_CATEGORIES: RoleplayCategory[] = [
       "Apologize for real, set boundaries with your mother-in-law, tell a friend what bothers you, reconnect with someone you lost. Delicate conversations, done well.",
     scenes: [
       {
-        emoji: "🤲",
+        icon: "HandHeart",
         title: "Apologize for real",
         character: "Ot is hurt but pretends nothing happened.",
         mission: "Apologize without excuses and propose how to repair it.",
       },
       {
-        emoji: "🍲",
+        icon: "Soup",
         title: "Boundaries with the mother-in-law",
         character: "Pilar shows up unannounced, “just to help”.",
         mission: "Ask her to call first without hurting her feelings.",
       },
       {
-        emoji: "☎️",
+        icon: "PhoneCall",
         title: "Reconnect with a lost friend",
         character: "Roc is distant after three years of silence.",
         mission: "Break the ice and get a plan for next week.",
       },
       {
-        emoji: "😤",
-        title: "Tell a friend what bothers you",
+        icon: "Timer",
+        title: "Confront the chronic lateness",
         character: "He always cancels last minute and jokes it away.",
         mission: "Say it straight, keep the friendship, get a real change.",
       },
@@ -476,7 +476,7 @@ export const FAQS = [
   },
   {
     q: "How much does Kari cost?",
-    a: "Kari is subscription-based with a free trial to start. There's a weekly and an annual plan, and you can top up conversation time with minute packs. Exact pricing is shown in the App Store before you buy, and you can cancel anytime from your Apple account settings.",
+    a: "Kari is subscription-based: a weekly plan and an annual plan, and you can top up conversation time with one-time minute packs. Exact pricing is shown in the App Store before you buy, and you can cancel anytime from your Apple account settings.",
   },
   {
     q: "Does Kari record or judge me?",

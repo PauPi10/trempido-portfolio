@@ -600,9 +600,14 @@
   transform: translateY(-3px) rotate(-0.35deg);
   box-shadow: var(--k-shadow);
 }
-.k-scene__emoji {
-  font-size: 1.9rem;
-  line-height: 1;
+.k-scene__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  background: var(--k-gold-soft);
+  color: var(--k-teja);
 }
 .k-scene__title {
   font-family: var(--k-font-display);

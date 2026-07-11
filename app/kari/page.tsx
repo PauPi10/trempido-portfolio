@@ -17,6 +17,7 @@ import {
 import { KariNav, KariFooter, CtaBanner } from "@/components/kari/chrome"
 import { Sunburst, Voice, JsonLd } from "@/components/kari/bits"
 import { Reveal } from "@/components/kari/reveal"
+import { SceneIcon } from "@/components/kari/scene-icon"
 
 export const metadata: Metadata = {
   title: "Kari — The AI Charisma Coach You Talk To, Out Loud",
@@ -34,7 +35,7 @@ const FEATURE_ICONS = {
   lock: Lock,
 } as const
 
-const marqueeScenes = ROLEPLAY_CATEGORIES.flatMap((c) => c.scenes.map((s) => ({ emoji: s.emoji, title: s.title })))
+const marqueeScenes = ROLEPLAY_CATEGORIES.flatMap((c) => c.scenes.map((s) => ({ icon: s.icon, title: s.title })))
 
 export default function KariHome() {
   return (
@@ -122,7 +123,7 @@ export default function KariHome() {
           <div className="k-marquee__track">
             {[...marqueeScenes, ...marqueeScenes].map((s, i) => (
               <span className="k-marquee__item" key={i}>
-                <span>{s.emoji}</span> {s.title}
+                <SceneIcon name={s.icon} size={15} /> {s.title}
               </span>
             ))}
           </div>
@@ -271,7 +272,7 @@ export default function KariHome() {
               ].map((s, i) => (
                 <Reveal key={s.title} delay={i * 0.08}>
                   <article className="k-scene" style={{ height: "100%" }}>
-                    <span className="k-scene__emoji">{s.emoji}</span>
+                    <span className="k-scene__icon"><SceneIcon name={s.icon} size={22} /></span>
                     <h3 className="k-scene__title">{s.title}</h3>
                     <p className="k-scene__char">{s.character}</p>
                     <p className="k-scene__mission">{s.mission}</p>

@@ -8,7 +8,7 @@ import { Reveal } from "@/components/kari/reveal"
 export const metadata: Metadata = {
   title: "Kari Pricing — Plans, Free Trial and Minute Packs",
   description:
-    "Kari Pro is a subscription with a free trial: weekly for trying it properly, annual for actually changing how you talk. Conversation time is measured in minutes, and you can top up with one-time minute packs. Exact prices in the App Store.",
+    "Kari Pro is a subscription: weekly for trying it properly, annual for actually changing how you talk. Conversation time is measured in minutes, and you can top up with one-time minute packs. Exact prices in the App Store.",
   alternates: { canonical: "https://www.trempido.com/kari/pricing" },
 }
 
@@ -27,11 +27,11 @@ const PLANS = [
   },
   {
     name: "Annual",
-    tag: "Free trial · best value",
-    blurb: "For actually changing how you talk. Starts with a free trial — cancel before it ends and pay nothing.",
+    tag: "Best value",
+    blurb: "For actually changing how you talk. One payment, and the training habit has a whole year to work.",
     features: [
       "Everything in weekly",
-      "Free trial to start",
+      "A full year of minutes, up front",
       "One payment, a year of training",
       "The plan chosen by people who stay",
     ],
@@ -92,7 +92,7 @@ export default function Pricing() {
                       target="_blank"
                       rel="noopener"
                     >
-                      {p.featured ? "Start free trial" : "Get started"}
+                      {p.featured ? "Get the annual plan" : "Get started"}
                     </a>
                   </div>
                 </Reveal>

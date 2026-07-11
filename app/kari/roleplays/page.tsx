@@ -3,6 +3,7 @@ import { ROLEPLAY_CATEGORIES, TOTAL_ROLEPLAYS } from "@/lib/kari-content"
 import { KariNav, KariFooter, CtaBanner, PageHeader } from "@/components/kari/chrome"
 import { JsonLd } from "@/components/kari/bits"
 import { Reveal } from "@/components/kari/reveal"
+import { SceneIcon } from "@/components/kari/scene-icon"
 
 export const metadata: Metadata = {
   title: `${TOTAL_ROLEPLAYS}+ Conversation Roleplays to Practice Out Loud`,
@@ -56,7 +57,7 @@ export default function Roleplays() {
                 {cat.scenes.map((s, i) => (
                   <Reveal key={s.title} delay={(i % 2) * 0.07}>
                     <article className="k-scene" style={{ height: "100%" }}>
-                      <span className="k-scene__emoji">{s.emoji}</span>
+                      <span className="k-scene__icon"><SceneIcon name={s.icon} size={22} /></span>
                       <h3 className="k-scene__title">{s.title}</h3>
                       <p className="k-scene__char">{s.character}</p>
                       <p className="k-scene__mission">{s.mission}</p>
