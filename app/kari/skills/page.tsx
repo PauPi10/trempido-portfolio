@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "9 Social Skills You Can Train by Speaking — 45 Voice Lessons",
   description:
     "The 9 skills Kari trains with 45 spoken lessons: social confidence, public speaking, dating and attraction, leadership presence, conflict and boundaries, charisma, storytelling, persuasion and negotiation. One technique per lesson, practiced out loud.",
-  alternates: { canonical: "https://www.trempido.com/kari/skills" },
+  alternates: { canonical: "https://karicoach.app/skills" },
 }
 
 const LIST_LD = {
@@ -71,10 +71,10 @@ export default function Skills() {
                 whole app.
               </p>
               <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-                <Link className="k-btn k-btn--primary" href="/kari/roleplays">
+                <Link className="k-btn k-btn--primary" href="/roleplays">
                   See the 160+ roleplays <ArrowRight size={17} />
                 </Link>
-                <Link className="k-btn k-btn--ghost" href="/kari/science">
+                <Link className="k-btn k-btn--ghost" href="/science">
                   Why this works
                 </Link>
               </div>

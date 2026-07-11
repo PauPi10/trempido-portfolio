@@ -133,13 +133,15 @@ export function PortfolioApps() {
                 <span className="px-3 py-1 text-xs text-neutral-300 bg-neutral-800 rounded-full">{t("apps.kari.tag.ai")}</span>
               </div>
 
-              <Link
-                href="/kari"
+              <a
+                href="https://karicoach.app"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-white font-medium hover:text-amber-400 transition-colors"
               >
                 {t("apps.umi.cta")}
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+                <ExternalLink className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>

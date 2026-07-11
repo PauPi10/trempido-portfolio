@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: "Kari — The AI Charisma Coach You Talk To, Out Loud",
   description:
     "Kari is an iPhone app that trains charisma and social skills by real spoken conversation with an AI coach: 160+ roleplays, 45 voice lessons and a report that measures your behavior. Backed by science.",
-  alternates: { canonical: "https://www.trempido.com/kari" },
+  alternates: { canonical: "https://karicoach.app" },
 }
 
 const FEATURE_ICONS = {
@@ -70,7 +70,7 @@ export default function KariHome() {
                   <a className="k-btn k-btn--primary" href={KARI.appStoreUrl} target="_blank" rel="noopener">
                     Download on the App Store
                   </a>
-                  <Link className="k-btn k-btn--ghost" href="/kari/how-it-works">
+                  <Link className="k-btn k-btn--ghost" href="/how-it-works">
                     How it works <ArrowRight size={17} />
                   </Link>
                 </div>
@@ -175,7 +175,7 @@ export default function KariHome() {
               ))}
             </div>
             <Reveal>
-              <Link className="k-btn k-btn--ghost" href="/kari/how-it-works" style={{ marginTop: 18 }}>
+              <Link className="k-btn k-btn--ghost" href="/how-it-works" style={{ marginTop: 18 }}>
                 See the full method <ArrowRight size={17} />
               </Link>
             </Reveal>
@@ -281,7 +281,7 @@ export default function KariHome() {
               ))}
             </div>
             <Reveal>
-              <Link className="k-btn k-btn--ghost" href="/kari/roleplays" style={{ marginTop: 34 }}>
+              <Link className="k-btn k-btn--ghost" href="/roleplays" style={{ marginTop: 34 }}>
                 Browse all {TOTAL_ROLEPLAYS}+ scenes <ArrowRight size={17} />
               </Link>
             </Reveal>
@@ -301,7 +301,7 @@ export default function KariHome() {
                   Each skill is five spoken lessons: one concrete technique, practiced out loud with
                   Kari correcting your literal words, until the difficulty goes up.
                 </p>
-                <Link className="k-btn k-btn--ghost" href="/kari/skills" style={{ marginTop: 28 }}>
+                <Link className="k-btn k-btn--ghost" href="/skills" style={{ marginTop: 28 }}>
                   Explore the 9 skills <ArrowRight size={17} />
                 </Link>
               </Reveal>
@@ -340,7 +340,7 @@ export default function KariHome() {
               ))}
             </div>
             <Reveal>
-              <Link className="k-btn k-btn--ghost" href="/kari/science" style={{ marginTop: 36 }}>
+              <Link className="k-btn k-btn--ghost" href="/science" style={{ marginTop: 36 }}>
                 Read the research behind Kari <ArrowRight size={17} />
               </Link>
             </Reveal>
@@ -385,7 +385,7 @@ export default function KariHome() {
               ))}
             </div>
             <Reveal>
-              <Link className="k-btn k-btn--ghost" href="/kari/faq" style={{ marginTop: 28 }}>
+              <Link className="k-btn k-btn--ghost" href="/faq" style={{ marginTop: 28 }}>
                 All questions <ArrowRight size={17} />
               </Link>
             </Reveal>

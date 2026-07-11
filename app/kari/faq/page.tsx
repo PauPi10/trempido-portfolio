@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Kari FAQ — What It Is, How It Works, What It Costs",
   description:
     "Answers about Kari, the voice AI charisma coach: what it is, whether practicing with an AI works, what you can practice, languages, pricing and privacy.",
-  alternates: { canonical: "https://www.trempido.com/kari/faq" },
+  alternates: { canonical: "https://karicoach.app/faq" },
 }
 
 const FAQ_LD = {

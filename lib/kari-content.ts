@@ -4,7 +4,7 @@
 
 export const KARI = {
   name: "Kari",
-  siteUrl: "https://www.trempido.com/kari",
+  siteUrl: "https://karicoach.app",
   appStoreUrl: "https://apps.apple.com/app/id6788028264",
   appStoreId: "6788028264",
   tagline: "Your social gym, by voice",
@@ -494,12 +494,12 @@ export const COMPARISON = [
 ];
 
 export const NAV_LINKS = [
-  { href: "/kari/how-it-works", label: "How it works" },
-  { href: "/kari/roleplays", label: "Roleplays" },
-  { href: "/kari/skills", label: "Skills" },
-  { href: "/kari/science", label: "Science" },
-  { href: "/kari/pricing", label: "Pricing" },
-  { href: "/kari/faq", label: "FAQ" },
+  { href: "/how-it-works", label: "How it works" },
+  { href: "/roleplays", label: "Roleplays" },
+  { href: "/skills", label: "Skills" },
+  { href: "/science", label: "Science" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/faq", label: "FAQ" },
 ] as const;
 
 // The 4 traits Kari measures in every session (from Models.swift).

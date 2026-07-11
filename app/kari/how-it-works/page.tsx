@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "How Kari Works: Spoken Lesson, Live Roleplay, Evidence Report",
   description:
     "How the Kari method works: you learn one technique in a spoken lesson, test it in a live voice roleplay against a character who pushes back, and get a report measuring Listening, Clarity, Confidence and Tone.",
-  alternates: { canonical: "https://www.trempido.com/kari/how-it-works" },
+  alternates: { canonical: "https://karicoach.app/how-it-works" },
 }
 
 const HOWTO_LD = {
@@ -163,7 +163,7 @@ export default function HowItWorks() {
             </Reveal>
             <Reveal>
               <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginTop: 34 }}>
-                <Link className="k-btn k-btn--ghost" href="/kari/science">
+                <Link className="k-btn k-btn--ghost" href="/science">
                   The evidence behind each choice <ArrowRight size={17} />
                 </Link>
                 <a className="k-btn k-btn--primary" href={KARI.appStoreUrl} target="_blank" rel="noopener">

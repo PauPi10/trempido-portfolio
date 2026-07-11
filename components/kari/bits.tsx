@@ -63,7 +63,7 @@ export function breadcrumbLd(items: { name: string; path: string }[]) {
       "@type": "ListItem",
       position: i + 1,
       name: it.name,
-      item: `https://www.trempido.com${it.path}`,
+      item: `https://karicoach.app${it.path === "/" ? "" : it.path}`,
     })),
   };
 }

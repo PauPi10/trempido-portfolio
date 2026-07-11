@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card"
 export const metadata = {
   title: "Terms of Service — Kari",
   description: "Terms of Service for Kari, the voice-based social-skills coaching app.",
-  alternates: { canonical: "https://www.trempido.com/kari/terms" },
+  alternates: { canonical: "https://karicoach.app/terms" },
 }
 
 export default function TermsPage() {
@@ -16,13 +16,13 @@ export default function TermsPage() {
       <div className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link
-            href="/kari"
+            href="/"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Kari
           </Link>
-          <Link href="/kari/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             Privacy
           </Link>
         </div>

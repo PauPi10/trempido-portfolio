@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Kari Pricing — Weekly Plan, Annual Plan and Minute Packs",
   description:
     "Kari Pro is a subscription: weekly for trying it properly, annual for actually changing how you talk. Conversation time is measured in minutes, and you can top up with one-time minute packs. Exact prices in the App Store.",
-  alternates: { canonical: "https://www.trempido.com/kari/pricing" },
+  alternates: { canonical: "https://karicoach.app/pricing" },
 }
 
 const PLANS = [
@@ -118,10 +118,10 @@ export default function Pricing() {
                   processed by Apple; we never see your card.
                 </p>
                 <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap", marginTop: 24 }}>
-                  <Link className="k-btn k-btn--ghost" href="/kari/faq">
+                  <Link className="k-btn k-btn--ghost" href="/faq">
                     Pricing questions <ArrowRight size={17} />
                   </Link>
-                  <Link className="k-btn k-btn--ghost" href="/kari/terms">
+                  <Link className="k-btn k-btn--ghost" href="/terms">
                     Terms
                   </Link>
                 </div>

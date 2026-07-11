@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: `${TOTAL_ROLEPLAYS}+ Conversation Roleplays to Practice Out Loud`,
   description:
     "Browse Kari's catalog of 160+ voice roleplays: dating and flirting, job interviews and salary talks, persuasion and negotiation, everyday conflicts, family conversations. Practice each scene out loud with an AI character who talks back.",
-  alternates: { canonical: "https://www.trempido.com/kari/roleplays" },
+  alternates: { canonical: "https://karicoach.app/roleplays" },
 }
 
 const LIST_LD = {

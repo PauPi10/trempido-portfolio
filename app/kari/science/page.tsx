@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "The Science Behind Kari: Evidence for Voice-Based Social Skills Training",
   description:
     "The research Kari is built on: simulated exposure matches real exposure (d=−1.39 vs −1.41, N=508), skills training doubles the effect of exposure alone (d=0.87), and vocal charisma improves within hours of feedback-driven practice (N=72, p<0.001).",
-  alternates: { canonical: "https://www.trempido.com/kari/science" },
+  alternates: { canonical: "https://karicoach.app/science" },
 }
 
 const ARTICLE_LD = {
@@ -21,7 +21,7 @@ const ARTICLE_LD = {
     "A summary of the primary studies and meta-analyses behind Kari's design: exposure research, social skills training, prosodic charisma feedback and measurable conversational signals.",
   author: { "@type": "Person", name: "Pau Pidelaserra" },
   publisher: { "@type": "Person", name: "Pau Pidelaserra" },
-  mainEntityOfPage: "https://www.trempido.com/kari/science",
+  mainEntityOfPage: "https://karicoach.app/science",
 }
 
 export default function Science() {
@@ -99,7 +99,7 @@ export default function Science() {
                 seconds, concrete language) reliably shape how people perceive you. Kari measures exactly
                 those behaviors — nothing mystical, nothing it can't count.
               </p>
-              <Link className="k-btn k-btn--ghost" href="/kari/how-it-works" style={{ marginTop: 16 }}>
+              <Link className="k-btn k-btn--ghost" href="/how-it-works" style={{ marginTop: 16 }}>
                 See how this becomes the method <ArrowRight size={17} />
               </Link>
             </Reveal>

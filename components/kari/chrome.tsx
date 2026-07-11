@@ -9,7 +9,7 @@ export function KariNav({ current }: { current?: string }) {
   return (
     <nav className="k-nav">
       <div className="k-wrap k-nav__inner">
-        <Link href="/kari" className="k-nav__logo">
+        <Link href="/" className="k-nav__logo">
           <Image src="/images/kari/logo.png" alt="" width={34} height={34} style={{ borderRadius: 9 }} />
           Kari
         </Link>
@@ -41,11 +41,11 @@ export function PageHeader({
 }) {
   return (
     <header className="k-pagehead">
-      <JsonLd data={breadcrumbLd([{ name: "Kari", path: "/kari" }, { name: crumb, path: "" }])} />
+      <JsonLd data={breadcrumbLd([{ name: "Kari", path: "/" }, { name: crumb, path: "" }])} />
       <Sunburst size={430} style={{ top: -160, right: -140 }} />
       <div className="k-wrap">
         <nav className="k-crumb" aria-label="Breadcrumb">
-          <Link href="/kari">Kari</Link>
+          <Link href="/">Kari</Link>
           <span aria-hidden="true">/</span>
           <span>{crumb}</span>
         </nav>
@@ -89,7 +89,7 @@ export function KariFooter() {
       <div className="k-wrap">
         <div className="k-footer__cols">
           <div>
-            <Link href="/kari" className="k-nav__logo" style={{ color: "var(--k-cream)" }}>
+            <Link href="/" className="k-nav__logo" style={{ color: "var(--k-cream)" }}>
               <Image src="/images/kari/logo.png" alt="" width={34} height={34} style={{ borderRadius: 9 }} />
               Kari
             </Link>
@@ -109,26 +109,26 @@ export function KariFooter() {
           <div>
             <h4>Product</h4>
             <ul>
-              <li><Link href="/kari/how-it-works">How it works</Link></li>
-              <li><Link href="/kari/roleplays">Roleplays</Link></li>
-              <li><Link href="/kari/skills">Skills</Link></li>
-              <li><Link href="/kari/pricing">Pricing</Link></li>
+              <li><Link href="/how-it-works">How it works</Link></li>
+              <li><Link href="/roleplays">Roleplays</Link></li>
+              <li><Link href="/skills">Skills</Link></li>
+              <li><Link href="/pricing">Pricing</Link></li>
             </ul>
           </div>
           <div>
             <h4>Resources</h4>
             <ul>
-              <li><Link href="/kari/science">The science</Link></li>
-              <li><Link href="/kari/faq">FAQ</Link></li>
+              <li><Link href="/science">The science</Link></li>
+              <li><Link href="/faq">FAQ</Link></li>
               <li><a href={`mailto:${KARI.supportEmail}`}>Support</a></li>
             </ul>
           </div>
           <div>
             <h4>Legal</h4>
             <ul>
-              <li><Link href="/kari/privacy">Privacy Policy</Link></li>
-              <li><Link href="/kari/terms">Terms of Service</Link></li>
-              <li><Link href="/">trempido</Link></li>
+              <li><Link href="/privacy">Privacy Policy</Link></li>
+              <li><Link href="/terms">Terms of Service</Link></li>
+              <li><a href="https://www.trempido.com">trempido</a></li>
             </ul>
           </div>
         </div>
