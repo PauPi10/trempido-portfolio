@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { FAQS, KARI } from "@/lib/kari-content"
+import { FAQS, FAQS_SEO, KARI } from "@/lib/kari-content"
 import { KariNav, KariFooter, CtaBanner, PageHeader } from "@/components/kari/chrome"
 import { JsonLd } from "@/components/kari/bits"
 import { Reveal } from "@/components/kari/reveal"
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const FAQ_LD = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: FAQS.map((f) => ({
+  mainEntity: [...FAQS, ...FAQS_SEO].map((f) => ({
     "@type": "Question",
     name: f.q,
     acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -36,7 +36,7 @@ export default function Faq() {
           <div className="k-wrap" style={{ maxWidth: 860 }}>
             <Reveal>
               <div className="k-faq">
-                {FAQS.map((f) => (
+                {[...FAQS, ...FAQS_SEO].map((f) => (
                   <details key={f.q}>
                     <summary>{f.q}</summary>
                     <p>{f.a}</p>

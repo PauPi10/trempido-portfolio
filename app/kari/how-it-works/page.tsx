@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { HOW_STEPS, TRAITS, ARCHETYPES, REPORT_DEMO, COMPARISON, KARI } from "@/lib/kari-content"
 import { KariNav, KariFooter, CtaBanner, PageHeader } from "@/components/kari/chrome"
@@ -76,9 +77,12 @@ export default function HowItWorks() {
             <div className="k-grid-2" style={{ marginTop: 40 }}>
               {TRAITS.map((t, i) => (
                 <Reveal key={t.name} delay={i * 0.06}>
-                  <div className="k-card">
-                    <h3 className="k-h3" style={{ fontSize: "1.3rem", color: "var(--k-gold)" }}>{t.name}</h3>
-                    <p className="k-muted" style={{ marginTop: 8 }}>{t.blurb}</p>
+                  <div className="k-card k-trait">
+                    <Image src={t.img} alt={`${t.name} — trait measured by Kari`} width={52} height={52} />
+                    <div>
+                      <h3 className="k-h3" style={{ fontSize: "1.3rem", color: "var(--k-gold)" }}>{t.name}</h3>
+                      <p className="k-muted" style={{ marginTop: 8 }}>{t.blurb}</p>
+                    </div>
                   </div>
                 </Reveal>
               ))}

@@ -1,54 +1,16 @@
-/* Renders a roleplay scene icon by name — the same Lucide icons the app
-   uses in RoleplayCatalog.swift (lucide-martini, lucide-coffee, …). */
+/* Renders a roleplay scene icon using the app's own pre-rendered art
+   (Assets.xcassets rpg-*.imageset), not generic stroke icons. */
 
-import {
-  Martini,
-  Coffee,
-  HeartCrack,
-  CloudRain,
-  Briefcase,
-  TrendingUp,
-  OctagonX,
-  Coins,
-  Gem,
-  Scissors,
-  ToyBrick,
-  House,
-  Volume2,
-  Receipt,
-  Footprints,
-  CarTaxiFront,
-  HandHeart,
-  Soup,
-  PhoneCall,
-  Timer,
-  Sparkles,
-} from "lucide-react"
+import Image from "next/image"
 
-const ICONS = {
-  Martini,
-  Coffee,
-  HeartCrack,
-  CloudRain,
-  Briefcase,
-  TrendingUp,
-  OctagonX,
-  Coins,
-  Gem,
-  Scissors,
-  ToyBrick,
-  House,
-  Volume2,
-  Receipt,
-  Footprints,
-  CarTaxiFront,
-  HandHeart,
-  Soup,
-  PhoneCall,
-  Timer,
-} as const
-
-export function SceneIcon({ name, size = 20 }: { name: string; size?: number }) {
-  const Icon = ICONS[name as keyof typeof ICONS] ?? Sparkles
-  return <Icon size={size} strokeWidth={2.1} aria-hidden="true" />
+export function SceneIcon({ name, size = 20, alt = "" }: { name: string; size?: number; alt?: string }) {
+  return (
+    <Image
+      src={`/images/kari/rpg/rpg-${name}.png`}
+      alt={alt}
+      width={size}
+      height={size}
+      style={{ borderRadius: size >= 40 ? 10 : 6 }}
+    />
+  )
 }

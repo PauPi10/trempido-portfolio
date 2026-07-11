@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { ROLEPLAY_CATEGORIES, TOTAL_ROLEPLAYS } from "@/lib/kari-content"
 import { KariNav, KariFooter, CtaBanner, PageHeader } from "@/components/kari/chrome"
 import { JsonLd } from "@/components/kari/bits"
@@ -47,7 +48,8 @@ export default function Roleplays() {
           >
             <div className="k-wrap">
               <Reveal>
-                <div className="k-cat">
+                <div className="k-cat" style={{ alignItems: "center" }}>
+                  <Image src={cat.img} alt={`${cat.name} — roleplay category art`} width={72} height={72} style={{ filter: "drop-shadow(0 10px 16px rgba(93,36,16,0.22))" }} />
                   <h2 className="k-h2" style={{ fontSize: "clamp(1.7rem,3.4vw,2.5rem)" }}>{cat.name}</h2>
                   <span className="k-cat__count">{cat.count} scenes</span>
                 </div>

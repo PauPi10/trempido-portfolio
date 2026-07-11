@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { Mic, Flame, ClipboardList, Gauge, LayoutGrid, Lock, ArrowRight } from "lucide-react"
 import {
   KARI,
@@ -13,6 +14,9 @@ import {
   FAQS,
   REPORT_DEMO,
   PROMISE,
+  GOALS,
+  CHARACTERS,
+  TRAITS,
 } from "@/lib/kari-content"
 import { KariNav, KariFooter, CtaBanner } from "@/components/kari/chrome"
 import { Sunburst, Voice, JsonLd } from "@/components/kari/bits"
@@ -88,9 +92,12 @@ export default function KariHome() {
             {/* conversation artifact */}
             <Reveal delay={0.2}>
               <div className="k-device" aria-hidden="true">
-                <div className="k-bubble k-bubble--them">
-                  <span className="k-bubble__who">Noa · cold approach at a bar</span>
-                  Another “do you come here often”? Really?
+                <div className="k-bubble k-bubble--them" style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                  <Image className="k-ava" src="/images/kari/char/noa.png" alt="Noa, the character at the bar" width={44} height={44} />
+                  <span>
+                    <span className="k-bubble__who">Noa · cold approach at a bar</span>
+                    Another “do you come here often”? Really?
+                  </span>
                 </div>
                 <div className="k-bubble k-bubble--you">
                   <span className="k-bubble__who" style={{ display: "flex", gap: 8, alignItems: "center" }}>
@@ -151,6 +158,35 @@ export default function KariHome() {
           </div>
         </section>
 
+        {/* ─── GOALS ────────────────────────────────────────── */}
+        <section className="k-section k-section--tight" style={{ background: "var(--k-paper-deep)" }}>
+          <div className="k-wrap">
+            <Reveal>
+              <span className="k-eyebrow">Pick your fight</span>
+              <h2 className="k-h2" style={{ marginTop: 14, maxWidth: "22ch" }}>
+                What do you want to <span className="k-italic">unlock first?</span>
+              </h2>
+            </Reveal>
+            <div className="k-grid-4" style={{ marginTop: 40 }}>
+              {GOALS.map((g, i) => (
+                <Reveal key={g.id} delay={(i % 4) * 0.07}>
+                  <Link href={g.href} className="k-goal" style={{ height: "100%" }}>
+                    <div className="k-goal__img">
+                      <Image src={g.img} alt={`${g.promise} — training goal in Kari`} width={440} height={190} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    </div>
+                    <div className="k-goal__body">
+                      <span className="k-goal__name">{g.name}</span>
+                      <span className="k-goal__promise">{g.promise}</span>
+                      <span className="k-goal__today">Today: {g.today}</span>
+                      <span className="k-goal__in30">{g.in30}</span>
+                    </div>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ─── HOW IT WORKS ─────────────────────────────────── */}
         <section className="k-section">
           <div className="k-wrap">
@@ -189,6 +225,13 @@ export default function KariHome() {
             <div className="k-grid-2" style={{ gap: "clamp(36px, 5vw, 72px)", alignItems: "center" }}>
               <div>
                 <Reveal>
+                  <div className="k-coach">
+                    <Image src="/images/kari/char/kari.png" alt="Kari, the AI charisma coach" width={72} height={72} />
+                    <div>
+                      <div className="k-coach__name">Kari</div>
+                      <div className="k-coach__sub">Your coach. She hears everything.</div>
+                    </div>
+                  </div>
                   <span className="k-eyebrow">The report</span>
                   <h2 className="k-h2" style={{ marginTop: 14 }}>
                     A coach who <span className="k-italic" style={{ color: "var(--k-gold)" }}>doesn't flatter you</span>
@@ -260,9 +303,17 @@ export default function KariHome() {
               <h2 className="k-h2" style={{ marginTop: 14, maxWidth: "22ch" }}>
                 Every conversation you've been <span className="k-italic">avoiding</span>
               </h2>
-              <p className="k-lead" style={{ marginTop: 18 }}>
-                {ROLEPLAY_CATEGORIES.map((c) => `${c.name} (${c.count})`).join(" · ")}
-              </p>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <div className="k-catart" style={{ marginTop: 40 }}>
+                {ROLEPLAY_CATEGORIES.map((c) => (
+                  <Link key={c.id} href="/roleplays" className="k-catart__item" style={{ textDecoration: "none" }}>
+                    <Image src={c.img} alt={`${c.name} roleplays — ${c.count} scenes`} width={84} height={84} />
+                    <div className="k-catart__name">{c.name}</div>
+                    <div className="k-catart__count">{c.count} scenes</div>
+                  </Link>
+                ))}
+              </div>
             </Reveal>
             <div className="k-grid-3" style={{ marginTop: 40 }}>
               {[
@@ -344,6 +395,35 @@ export default function KariHome() {
                 Read the research behind Kari <ArrowRight size={17} />
               </Link>
             </Reveal>
+          </div>
+        </section>
+
+        {/* ─── THE CAST ─────────────────────────────────────── */}
+        <section className="k-section" style={{ background: "var(--k-paper-deep)" }}>
+          <div className="k-wrap">
+            <Reveal>
+              <span className="k-eyebrow">The cast</span>
+              <h2 className="k-h2" style={{ marginTop: 14, maxWidth: "22ch" }}>
+                Characters with <span className="k-italic">a mind of their own</span>
+              </h2>
+              <p className="k-lead" style={{ marginTop: 18 }}>
+                Every scene has a character with a personality, a mood and a threshold. They get bored,
+                they push back, and they only give in when your technique earns it.
+              </p>
+            </Reveal>
+            <div className="k-cast" style={{ marginTop: 40 }}>
+              {CHARACTERS.map((c, i) => (
+                <Reveal key={c.name} delay={(i % 5) * 0.06}>
+                  <figure className="k-cast__card" style={{ margin: 0 }}>
+                    <Image src={c.img} alt={`${c.name} — AI roleplay character in Kari`} width={300} height={300} />
+                    <figcaption className="k-cast__body">
+                      <div className="k-cast__name">{c.name}</div>
+                      <div className="k-cast__role">{c.role}</div>
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 

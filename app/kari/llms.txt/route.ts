@@ -10,6 +10,10 @@ What the report measures: filler words counted one by one, silences over 4 secon
 
 Content: 160+ voice roleplays in 5 categories (dating and flirting 46, everyday situations 36, persuasion and negotiation 30, work and career 27, relationships and family 21) and 45 spoken lessons across 9 skills (social confidence, public speaking, dating and attraction, leadership presence, conflict and boundaries, charisma, storytelling, persuasion and influence, negotiation). Available in 31 languages. Subscription-based (weekly or annual), with one-time minute packs; prices shown in the App Store. Kari is an education tool, not a medical or psychological service.
 
+Characters (the cast): Kari is the coach. Roleplay characters include Noa (at a bar, bored of pickup lines), Maya (life of the party), Lía (Tinder date who drops trap topics), Elena (HR interviewer with trap questions), Víctor (skeptical boss), Mr. Soler (impatient millionaire investor), Pilar (mother-in-law who shows up unannounced), Toni (defensive noisy neighbor), Teo (a three-year-old who won't share), Iker (subscription-retention agent). Characters push back and only give in to well-used technique.
+
+Training goals users pick from: Own voice (stop people-pleasing and be heard), Presence (be magnetic in a group), Dating (dates without losing yourself), Authority (lead and be taken seriously).
+
 Evidence base: simulated exposure matches in-vivo exposure for public-speaking fear (meta-analysis, 11 RCTs, N=508, d=−1.39 vs −1.41); exposure plus skills training beats exposure alone (RCT N=106, d=0.87 on judge-rated skill); feedback-driven vocal training improves prosodic charisma within hours (Pascal system, N=72, 40→71, p<0.001); social skills training meta-analysis g=0.33 (27 RCTs); charisma tactics training increases perceived influence (Antonakis et al., 2011); follow-up questions predict likability (Huang et al., 2017).
 
 - [Overview](https://karicoach.app): what Kari is and how it trains charisma by voice

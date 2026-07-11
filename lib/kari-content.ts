@@ -49,6 +49,7 @@ export const SKILLS: Skill[] = [
   },
   {
     id: "dating",
+    img: "/images/kari/cat/cat-citas.png",
     name: "Dating and attraction",
     tagline: "Build chemistry without scripted lines.",
     subskills: [
@@ -109,6 +110,7 @@ export const SKILLS: Skill[] = [
   },
   {
     id: "persuasion",
+    img: "/images/kari/cat/cat-persuasion.png",
     name: "Persuasion and influence",
     tagline: "From “sounds good” to “done”.",
     subskills: [
@@ -137,6 +139,7 @@ export type RoleplayCategory = {
   id: string;
   name: string;
   count: number;
+  img: string;
   blurb: string;
   scenes: { icon: string; title: string; character: string; mission: string }[];
 };
@@ -145,31 +148,32 @@ export type RoleplayCategory = {
 export const ROLEPLAY_CATEGORIES: RoleplayCategory[] = [
   {
     id: "dating",
+    img: "/images/kari/cat/cat-citas.png",
     name: "Dating and flirting",
     count: 46,
     blurb:
       "Approach someone cold, build chemistry, escape the friendzone or take a no with grace. Characters who get bored the second you sound scripted.",
     scenes: [
       {
-        icon: "Martini",
+        icon: "martini",
         title: "Cold approach at a bar",
         character: "Noa is out with her friends and bored of pickup lines.",
         mission: "Start a natural conversation and earn three minutes of real talk.",
       },
       {
-        icon: "Coffee",
+        icon: "coffee",
         title: "Nail the first Tinder date",
         character: "Lía is sizing you up and drops trap topics: the ex, what you're looking for.",
         mission: "Turn the interrogation into a conversation with chemistry.",
       },
       {
-        icon: "HeartCrack",
+        icon: "heart-crack",
         title: "Get out of the friendzone",
         character: "Carla is your lifelong friend and doesn't see it coming.",
         mission: "Express your interest without pressure, protecting the friendship.",
       },
       {
-        icon: "CloudRain",
+        icon: "cloud-rain",
         title: "Take a no with elegance",
         character: "She's flattered but not interested, and watching how you react.",
         mission: "Accept it gracefully and leave a better impression than you came with.",
@@ -178,31 +182,32 @@ export const ROLEPLAY_CATEGORIES: RoleplayCategory[] = [
   },
   {
     id: "career",
+    img: "/images/kari/cat/cat-profesional.png",
     name: "Work and career",
     count: 27,
     blurb:
       "Job interviews, promotions, salary negotiation, hard feedback, saying no to your boss. Interlocutors with trap questions and tight budgets.",
     scenes: [
       {
-        icon: "Briefcase",
+        icon: "briefcase",
         title: "Ace the job interview",
         character: "Elena from HR is friendly but hides trap questions.",
         mission: "Present your strengths with confidence, without sounding arrogant.",
       },
       {
-        icon: "TrendingUp",
+        icon: "trending-up",
         title: "Make your case for a promotion",
         character: "Víctor, your boss, hides behind a limited budget.",
         mission: "Defend your value with data and ask for the promotion outright.",
       },
       {
-        icon: "OctagonX",
+        icon: "octagon-x",
         title: "Say no to your boss",
         character: "Óscar overloads you by appealing to your commitment.",
         mission: "Decline the extra work with a viable, professional alternative.",
       },
       {
-        icon: "Coins",
+        icon: "coins",
         title: "Negotiate your compensation",
         character: "Marta plants herself on the initial offer and waits you out.",
         mission: "Raise the number without ultimatums and without folding first.",
@@ -211,31 +216,32 @@ export const ROLEPLAY_CATEGORIES: RoleplayCategory[] = [
   },
   {
     id: "persuasion",
+    img: "/images/kari/cat/cat-persuasion.png",
     name: "Persuasion and negotiation",
     count: 30,
     blurb:
       "Pitch an investor, negotiate rent, get your money back or cancel a subscription without being talked out of it by retention.",
     scenes: [
       {
-        icon: "Gem",
+        icon: "gem",
         title: "Win over a millionaire",
         character: "Mr. Soler has heard a thousand pitches; he gets bored and interrupts.",
         mission: "Hook him and earn five more minutes of the meeting.",
       },
       {
-        icon: "Scissors",
+        icon: "scissors",
         title: "Cancel a subscription without being upsold",
         character: "Iker from retention uses aggressive offers and emotional blackmail.",
         mission: "Stay firm until he confirms your cancellation is processed.",
       },
       {
-        icon: "ToyBrick",
+        icon: "toy-brick",
         title: "Convince a 3-year-old to share",
         character: "Teo shuts down completely: “it's mine” — pure toddler logic.",
         mission: "Get him to share without yelling, punishments or absurd bribes.",
       },
       {
-        icon: "House",
+        icon: "house",
         title: "Negotiate the rent down",
         character: "The landlord insists the market is “on fire”.",
         mission: "Anchor low with reasons and close a real discount.",
@@ -244,31 +250,32 @@ export const ROLEPLAY_CATEGORIES: RoleplayCategory[] = [
   },
   {
     id: "everyday",
+    img: "/images/kari/cat/cat-situaciones.png",
     name: "Everyday situations",
     count: 36,
     blurb:
       "The noisy neighbor, the line-cutter, the unfair group bill, the taxi driver taking the scenic route. Stand your ground without making a scene.",
     scenes: [
       {
-        icon: "Volume2",
+        icon: "volume-2",
         title: "Address the neighbor's noise",
         character: "Toni gets defensive: in his house he does what he wants.",
         mission: "Get the music down now, without starting a neighborhood war.",
       },
       {
-        icon: "Receipt",
+        icon: "receipt",
         title: "Push back on the group bill",
         character: "Hugo pressures everyone to split evenly and calls you cheap.",
         mission: "Pay only your share, naturally and firmly.",
       },
       {
-        icon: "Footprints",
+        icon: "footprints",
         title: "Defend your place in line",
         character: "He cuts in and plays dumb.",
         mission: "Reclaim your spot firmly, without a scene.",
       },
       {
-        icon: "CarTaxiFront",
+        icon: "car-taxi-front",
         title: "The scenic-route taxi",
         character: "The meter keeps running while he swears it's a shortcut.",
         mission: "Get back on the direct route without an argument.",
@@ -277,31 +284,32 @@ export const ROLEPLAY_CATEGORIES: RoleplayCategory[] = [
   },
   {
     id: "relationships",
+    img: "/images/kari/cat/cat-relaciones.png",
     name: "Relationships and family",
     count: 21,
     blurb:
       "Apologize for real, set boundaries with your mother-in-law, tell a friend what bothers you, reconnect with someone you lost. Delicate conversations, done well.",
     scenes: [
       {
-        icon: "HandHeart",
+        icon: "hand-heart",
         title: "Apologize for real",
         character: "Ot is hurt but pretends nothing happened.",
         mission: "Apologize without excuses and propose how to repair it.",
       },
       {
-        icon: "Soup",
+        icon: "soup",
         title: "Boundaries with the mother-in-law",
         character: "Pilar shows up unannounced, “just to help”.",
         mission: "Ask her to call first without hurting her feelings.",
       },
       {
-        icon: "PhoneCall",
+        icon: "phone-call",
         title: "Reconnect with a lost friend",
         character: "Roc is distant after three years of silence.",
         mission: "Break the ice and get a plan for next week.",
       },
       {
-        icon: "Timer",
+        icon: "timer",
         title: "Confront the chronic lateness",
         character: "He always cancels last minute and jokes it away.",
         mission: "Say it straight, keep the friendship, get a real change.",
@@ -504,10 +512,10 @@ export const NAV_LINKS = [
 
 // The 4 traits Kari measures in every session (from Models.swift).
 export const TRAITS = [
-  { name: "Listening", blurb: "Follow-up questions, callbacks, building on what they said." },
-  { name: "Clarity", blurb: "One idea per turn, sentences that end instead of trailing off." },
-  { name: "Confidence", blurb: "Holding your point without permission words or over-explaining." },
-  { name: "Tone", blurb: "Energy variation, emphasis, pace — the voice that fills the room." },
+  { name: "Listening", img: "/images/kari/stat/stat-escucha.png", blurb: "Follow-up questions, callbacks, building on what they said." },
+  { name: "Clarity", img: "/images/kari/stat/stat-claridad.png", blurb: "One idea per turn, sentences that end instead of trailing off." },
+  { name: "Confidence", img: "/images/kari/stat/stat-confianza.png", blurb: "Holding your point without permission words or over-explaining." },
+  { name: "Tone", img: "/images/kari/stat/stat-tono.png", blurb: "Energy variation, emphasis, pace — the voice that fills the room." },
 ] as const;
 
 // The 5 conversational archetypes (profile radar in the app).
@@ -543,4 +551,82 @@ export const PROMISE = [
   "The one who says what they think.",
   "The one who speaks and gets listened to.",
   "The one who makes people laugh without trying.",
+] as const;
+
+// The 4 training goals from the app's onboarding, with its real art.
+export const GOALS = [
+  {
+    id: "voice",
+    name: "Own voice",
+    promise: "Stop people-pleasing and be heard",
+    today: "You say yes, and spend the afternoon regretting it.",
+    in30: "You say no once — no padding. And nothing bad happens.",
+    img: "/images/kari/goal/goal-voz.jpg",
+    href: "/skills",
+  },
+  {
+    id: "presence",
+    name: "Presence",
+    promise: "Be magnetic in a group",
+    today: "You're in the group, but the conversation passes you by.",
+    in30: "You arrive, and the circle opens.",
+    img: "/images/kari/goal/goal-presencia.jpg",
+    href: "/roleplays",
+  },
+  {
+    id: "dating",
+    name: "Dating",
+    promise: "Dates without losing yourself",
+    today: "The date “went well” — and there was no second one.",
+    in30: "You forget to check your phone. So does she.",
+    img: "/images/kari/goal/goal-citas.jpg",
+    href: "/roleplays",
+  },
+  {
+    id: "authority",
+    name: "Authority",
+    promise: "Lead and be taken seriously",
+    today: "The meeting ends, and your idea got said by someone else.",
+    in30: "You finish talking, and there's the good kind of silence.",
+    img: "/images/kari/goal/goal-autoridad.jpg",
+    href: "/skills",
+  },
+] as const;
+
+// The cast — real characters from the roleplay catalog, with the app's art.
+export const CHARACTERS = [
+  { name: "Kari", role: "Your coach. Teaches the technique, hears everything, tells you the truth.", img: "/images/kari/char/kari.png" },
+  { name: "Noa", role: "At the bar with her friends, terminally bored of pickup lines.", img: "/images/kari/char/noa.png" },
+  { name: "Maya", role: "Life of the party. Warm with newcomers — if you actually show up.", img: "/images/kari/char/maya.png" },
+  { name: "Lía", role: "Your Tinder date. Friendly, evaluating, drops trap topics.", img: "/images/kari/char/chica.png" },
+  { name: "Elena", role: "HR. Smiles while hiding trap questions in the interview.", img: "/images/kari/char/ejecutiva.png" },
+  { name: "Víctor", role: "Your boss. Skeptical of promotions, fluent in “limited budget”.", img: "/images/kari/char/directivo.png" },
+  { name: "Mr. Soler", role: "Has heard a thousand pitches. Gets bored, interrupts.", img: "/images/kari/char/senor.png" },
+  { name: "Pilar", role: "Your mother-in-law. Shows up unannounced, “just to help”.", img: "/images/kari/char/senora.png" },
+  { name: "Toni", role: "The upstairs neighbor. In his house he does what he wants.", img: "/images/kari/char/hombre.png" },
+  { name: "Teo", role: "Three years old. “It's mine.” Immune to adult logic.", img: "/images/kari/char/nino.png" },
+] as const;
+
+// Extra FAQs targeting real search queries (SEO/GEO).
+export const FAQS_SEO = [
+  {
+    q: "What is an AI charisma coach?",
+    a: "An AI charisma coach is an app that trains how you come across in conversation — using artificial intelligence to talk with you, analyze your speech and give you feedback. Kari is a voice-based one: instead of typing to a chatbot, you speak out loud with AI characters, and Kari measures behaviors like filler words, pace, silences and follow-up questions to coach you between sessions.",
+  },
+  {
+    q: "How can I practice social skills alone?",
+    a: "The most effective way to practice alone is spoken roleplay with realistic feedback. Research shows simulated exposure works about as well as real exposure for public-speaking fear (11 RCTs, N=508), so practicing scenes out loud with a voice AI is legitimate training, not a toy. Kari gives you 160+ scenes — dates, interviews, conflicts — available 24/7, in private, with no social cost for failing.",
+  },
+  {
+    q: "How do I stop saying filler words?",
+    a: "First you need to hear them — most people genuinely don't. Kari counts your filler words one by one in every session and shows you exactly where they appeared. The fix it trains: replace the filler with a short silence (a pause reads as confidence; “um” reads as doubt), slow down 10%, and end sentences downward instead of trailing off. Most users start catching fillers mid-air within a couple of weeks.",
+  },
+  {
+    q: "Can charisma really be learned?",
+    a: "Yes — this is one of the better-established findings. Managers trained in concrete charisma tactics (stories, contrasts, three-part lists, rhetorical questions) were rated significantly more influential by their own teams (Antonakis et al., 2011). And vocal charisma improves within hours of feedback-driven practice: in the Pascal study (N=72), prosodic charisma scores jumped from 40 to 71 after 4 hours (p<0.001). Charisma behaves like a skill, not a gift.",
+  },
+  {
+    q: "How is Kari different from chat-based AI apps?",
+    a: "Three ways. You speak out loud, so Kari can coach the two thirds of charisma that live in your voice — pace, emphasis, pauses — which typing apps can't even see. The characters push back: they get bored by canned lines and only give in to technique, instead of agreeing like a generic assistant. And the feedback is measured behavior (filler words counted, silences timed, quotes cited), not encouragement.",
+  },
 ] as const;

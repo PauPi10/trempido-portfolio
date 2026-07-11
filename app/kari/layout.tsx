@@ -41,7 +41,6 @@ export const metadata: Metadata = {
     title: "Kari — The AI Charisma Coach You Talk To, Out Loud",
     description: KARI.oneLiner,
     url: KARI.siteUrl,
-    images: [{ url: "/images/kari/logo.png", width: 512, height: 512, alt: "Kari — your social gym, by voice" }],
   },
   twitter: {
     card: "summary_large_image",
