@@ -48,6 +48,14 @@ export const metadata: Metadata = {
     description: KARI.oneLiner,
   },
   alternates: { canonical: KARI.siteUrl },
+  icons: {
+    icon: [
+      { url: "/images/kari/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/kari/favicon-64.png", sizes: "64x64", type: "image/png" },
+      { url: "/images/kari/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/images/kari/apple-icon.png",
+  },
 }
 
 const APP_LD = {
