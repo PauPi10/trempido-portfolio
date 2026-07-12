@@ -153,13 +153,35 @@ export default function TermsPage() {
             </p>
           </Card>
 
-          {/* 8 Contact */}
+          {/* 8 EULA — Apple's minimum terms for a custom End-User License Agreement */}
+          <Card className="p-6 md:p-8">
+            <h2 className="text-2xl font-semibold mb-4">8. App Store EULA</h2>
+            <p className="text-foreground/90 leading-relaxed mb-4">
+              These Terms constitute the End-User License Agreement (EULA) for the App and incorporate Apple&apos;s{" "}
+              <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" className="text-amber-600 hover:underline" target="_blank" rel="noopener noreferrer">
+                Licensed Application End User License Agreement
+              </a>{" "}
+              as minimum terms. If you downloaded the App from the Apple App Store, the following also applies:
+            </p>
+            <ul className="space-y-2 text-foreground/90">
+              <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span><strong>Parties:</strong> this agreement is between you and the Developer only — not with Apple. Apple is not responsible for the App or its content.</span></li>
+              <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span><strong>License scope:</strong> a non-transferable license to use the App on Apple-branded devices that you own or control, as permitted by the App Store Usage Rules.</span></li>
+              <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span><strong>Maintenance and support:</strong> the Developer is solely responsible for the App. Apple has no obligation to provide maintenance or support services.</span></li>
+              <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span><strong>Warranty:</strong> if the App fails to conform to an applicable warranty, you may notify Apple, and Apple will refund the purchase price. To the maximum extent permitted by law, Apple has no other warranty obligation.</span></li>
+              <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span><strong>Claims:</strong> the Developer, not Apple, is responsible for addressing any claims relating to the App, including product liability, legal or regulatory non-conformity, and consumer-protection claims.</span></li>
+              <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span><strong>Intellectual property:</strong> in the event of a third-party claim that the App infringes intellectual property rights, the Developer, not Apple, is responsible for its investigation, defense and resolution.</span></li>
+              <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span><strong>Legal compliance:</strong> you represent that you are not located in a country subject to a U.S. Government embargo or designated as &quot;terrorist supporting&quot;, and that you are not on any U.S. Government list of prohibited or restricted parties.</span></li>
+              <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span><strong>Third-party beneficiary:</strong> Apple and its subsidiaries are third-party beneficiaries of these Terms and may enforce them against you.</span></li>
+            </ul>
+          </Card>
+
+          {/* 9 Contact */}
           <Card className="p-6 md:p-8 bg-gradient-to-br from-amber-500/5 to-orange-500/10">
             <div className="flex items-start gap-4 mb-4">
               <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0">
                 <Mail className="w-5 h-5 text-amber-600" />
               </div>
-              <h2 className="text-2xl font-semibold">8. Contact</h2>
+              <h2 className="text-2xl font-semibold">9. Contact</h2>
             </div>
             <div className="space-y-2">
               <p className="flex items-center gap-2">
