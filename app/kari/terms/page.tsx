@@ -40,7 +40,7 @@ export default function TermsPage() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-balance">Terms of Service</h1>
           <p className="text-lg text-muted-foreground mb-2">Kari</p>
-          <p className="text-sm text-muted-foreground">Last Updated: July 10, 2026</p>
+          <p className="text-sm text-muted-foreground">Last Updated: July 12, 2026</p>
         </div>
       </div>
 
@@ -97,8 +97,10 @@ export default function TermsPage() {
             <ul className="space-y-2 text-foreground/90">
               <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span>Pro access is offered through a subscription managed by Apple.</span></li>
               <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span>Conversation time is consumed in minutes; you can top up with minute packs (in-app purchases).</span></li>
-              <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span>Subscriptions renew automatically unless canceled at least 24 hours before the end of the period.</span></li>
-              <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span>You can manage or cancel your subscription in your Apple account settings.</span></li>
+              <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span>Payment is charged to your Apple Account at confirmation of purchase.</span></li>
+              <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span>Subscriptions renew automatically unless canceled at least 24 hours before the end of the current period.</span></li>
+              <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span>Your account is charged for renewal within 24 hours prior to the end of the current period.</span></li>
+              <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span>You can manage or cancel your subscription in your Apple account settings (Settings &gt; Apple&nbsp;ID &gt; Subscriptions) after purchase.</span></li>
               <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span>Minute packs are one-time consumable purchases; once used they are non-refundable except where required by law.</span></li>
               <li className="flex gap-2"><span className="text-amber-600">&bull;</span><span>Exact price and trial terms are shown in the App Store before you buy.</span></li>
             </ul>
