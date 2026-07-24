@@ -39,6 +39,14 @@ export const translations = {
   "apps.kari.tag.voice": { es: "Voz", en: "Voice" },
   "apps.kari.tag.charisma": { es: "Carisma", en: "Charisma" },
   "apps.kari.tag.ai": { es: "IA", en: "AI" },
+  "apps.pick.desc": {
+    es: "Come bien, sin estrés. Pick planifica tu semana de cenas según tu presupuesto y tu cocina, y te da la lista de la compra por pasillos.",
+    en: "Eat well, stress less. Pick plans your week of dinners around your budget and your kitchen, then hands you a grocery list sorted by aisle.",
+  },
+  "apps.pick.tag.meals": { es: "Cenas", en: "Meals" },
+  "apps.pick.tag.grocery": { es: "Compra", en: "Grocery" },
+  "apps.pick.tag.budget": { es: "Presupuesto", en: "Budget" },
+  "apps.pick.cta": { es: "Saber más", en: "Learn more" },
 
   "about.title": { es: "Sobre mí", en: "About me" },
   "about.text": {
