@@ -15,8 +15,14 @@ const LanguageContext = createContext<LanguageContextType>({
   t: (key) => translate(key, "es"),
 })
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("es")
+export function LanguageProvider({
+  children,
+  defaultLang = "es",
+}: {
+  children: React.ReactNode
+  defaultLang?: Lang
+}) {
+  const [lang, setLangState] = useState<Lang>(defaultLang)
 
   useEffect(() => {
     const stored = localStorage.getItem("lang") as Lang | null

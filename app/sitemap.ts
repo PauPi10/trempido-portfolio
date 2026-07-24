@@ -9,6 +9,11 @@ const routes: { path: string; priority: number; freq: MetadataRoute.Sitemap[numb
   { path: "/umi", priority: 0.7, freq: "monthly" },
   { path: "/umi/privacy", priority: 0.2, freq: "yearly" },
   { path: "/umi/terms", priority: 0.2, freq: "yearly" },
+  // Pick
+  { path: "/pick", priority: 0.7, freq: "monthly" },
+  { path: "/pick/privacy", priority: 0.2, freq: "yearly" },
+  { path: "/pick/terms", priority: 0.2, freq: "yearly" },
+  { path: "/pick/legal", priority: 0.2, freq: "yearly" },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
