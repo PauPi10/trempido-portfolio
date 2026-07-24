@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { Hanken_Grotesk } from "next/font/google"
-import { PICK } from "@/lib/pick-content"
+import { PICK, FAQ } from "@/lib/pick-content"
 import { JsonLd } from "@/components/pick/bits"
 import "./pick.css"
 
@@ -62,12 +62,22 @@ const APP_LD = {
   url: PICK.siteUrl,
   installUrl: PICK.appStoreUrl,
   inLanguage: ["en", "es"],
-  offers: {
-    "@type": "Offer",
-    price: "49.99",
-    priceCurrency: "USD",
-    category: "subscription",
-  },
+  offers: [
+    {
+      "@type": "Offer",
+      name: "Yearly subscription (3-day free trial)",
+      price: "49.99",
+      priceCurrency: "USD",
+      category: "subscription",
+    },
+    {
+      "@type": "Offer",
+      name: "Weekly subscription",
+      price: "9.99",
+      priceCurrency: "USD",
+      category: "subscription",
+    },
+  ],
   publisher: {
     "@type": "Organization",
     name: "TREMPIDO SL",
@@ -76,10 +86,20 @@ const APP_LD = {
   },
 }
 
+const FAQ_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ.map((item) => ({
+    "@type": "Question",
+    name: item.q.en,
+    acceptedAnswer: { "@type": "Answer", text: item.a.en },
+  })),
+}
+
 export default function PickLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className={`pick-theme ${hanken.variable} ${hankenBody.variable}`}>
-      <JsonLd data={APP_LD} />
+      <JsonLd data={[APP_LD, FAQ_LD]} />
       {children}
     </div>
   )

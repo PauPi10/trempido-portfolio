@@ -5,10 +5,9 @@
 export const PICK = {
   name: "Pick",
   siteUrl: "https://www.trempido.com/pick",
-  // App Store link — replace once the app is live.
-  appStoreUrl: "https://apps.apple.com/app/pick",
+  appStoreUrl: "https://apps.apple.com/app/id6794273453",
   tagline: "eat well, stress less",
-  supportEmail: "ppidelaserra2@gmail.com",
+  supportEmail: "hello@trempido.com",
   recipeCount: 229,
   // Legal owner (Aviso Legal · LSSI-CE)
   company: {
@@ -16,11 +15,12 @@ export const PICK = {
     taxId: "B75830257",
     address: "Carrer Nil Fabra 16, Escalera A, Ático 2ª, 08012 Barcelona, España",
   },
+  // Must match the App Store products (annual w/ trial + weekly, PaywallView.swift)
   pricing: {
     trialDays: 3,
     yearly: "$49.99",
-    yearlyMonthly: "$4.16",
-    monthly: "$9.99",
+    yearlyWeekly: "$0.96",
+    weekly: "$9.99",
   },
 } as const
 
@@ -39,15 +39,29 @@ export const SUPERMARKETS: { name: string; color: string }[] = [
   { name: "Whole Foods", color: "#00584C" },
 ]
 
-// A few real dishes for the "taste of the catalog" strip.
-export const DISHES: { emoji: string; bg: string; en: string; es: string }[] = [
-  { emoji: "🍜", bg: "var(--p-peach)", en: "Chicken ramen", es: "Ramen de pollo" },
-  { emoji: "🐟", bg: "var(--p-blue)", en: "Lemon herb salmon", es: "Salmón al limón" },
-  { emoji: "🌮", bg: "var(--p-orange)", en: "Beef tacos", es: "Tacos de ternera" },
-  { emoji: "🍝", bg: "var(--p-yellow)", en: "Spaghetti carbonara", es: "Carbonara" },
-  { emoji: "🍛", bg: "var(--p-mint)", en: "Tikka masala", es: "Tikka masala" },
-  { emoji: "🥗", bg: "var(--p-teal)", en: "Greek chicken salad", es: "Ensalada griega" },
+// Real dishes from the app's catalog (recipes.json) with their actual photos,
+// times and estimated prices. Images live in /public/images/pick/dishes/.
+export type Dish = { id: string; en: string; es: string; minutes: number; price: string; tag: string }
+export const DISHES: Dish[] = [
+  { id: "chicken-ramen-bowl", en: "Chicken Ramen Bowl", es: "Ramen de pollo", minutes: 15, price: "$3.22", tag: "Protein" },
+  { id: "beef-tacos", en: "Beef Tacos", es: "Tacos de ternera", minutes: 30, price: "$5.72", tag: "Protein" },
+  { id: "lemon-herb-salmon", en: "Lemon Herb Salmon", es: "Salmón al limón", minutes: 30, price: "$6.55", tag: "Protein" },
+  { id: "aglio-e-olio-spaghetti", en: "Aglio e Olio Spaghetti", es: "Espaguetis aglio e olio", minutes: 20, price: "$3.12", tag: "Speedy" },
+  { id: "chicken-tikka-masala-rice", en: "Chicken Tikka Masala", es: "Tikka masala de pollo", minutes: 40, price: "$5.37", tag: "Protein" },
+  { id: "greek-chicken-salad", en: "Greek Chicken Salad", es: "Ensalada griega de pollo", minutes: 20, price: "$3.81", tag: "Low cal" },
+  { id: "homemade-burgers", en: "Homemade Burgers", es: "Hamburguesas caseras", minutes: 35, price: "$5.47", tag: "Fakeaway" },
+  { id: "burrito-bowls", en: "Burrito Bowls", es: "Burrito bowls", minutes: 20, price: "$6.55", tag: "Fakeaway" },
+  { id: "low-cal-katsu-curry", en: "Low Cal Katsu Curry", es: "Katsu curry ligero", minutes: 30, price: "$4.78", tag: "Fakeaway" },
+  { id: "prawn-stir-fry", en: "Prawn Stir Fry", es: "Salteado de gambas", minutes: 20, price: "$5.37", tag: "Speedy" },
+  { id: "meatball-pasta", en: "Meatball Pasta", es: "Pasta con albóndigas", minutes: 40, price: "$3.62", tag: "Comfort" },
+  { id: "loaded-taco-fries", en: "Loaded Taco Fries", es: "Patatas taco cargadas", minutes: 30, price: "$5.47", tag: "Fakeaway" },
+  { id: "cheesy-tomato-risotto", en: "Cheesy Tomato Risotto", es: "Risotto de tomate y queso", minutes: 35, price: "$4.54", tag: "Family" },
+  { id: "garlic-chilli-chicken-noodles", en: "Garlic Chilli Noodles", es: "Noodles de pollo al chile", minutes: 30, price: "$7.79", tag: "Fakeaway" },
+  { id: "mini-pizza-bagels", en: "Mini Pizza Bagels", es: "Mini bagels pizza", minutes: 20, price: "$3.03", tag: "Family" },
+  { id: "peri-peri-salmon-rice", en: "Peri Peri Salmon Rice", es: "Arroz de salmón peri peri", minutes: 30, price: "$6.93", tag: "Protein" },
 ]
+
+export const dishImg = (id: string) => `/images/pick/dishes/${id}.jpg`
 
 type Copy = { en: string; es: string }
 const c = (en: string, es: string): Copy => ({ en, es })
@@ -113,8 +127,8 @@ export const T = {
   ),
   f6t: c("Private by design", "Privado de fábrica"),
   f6b: c(
-    "No account, no sign-up, no servers. Your plan and preferences live only on your iPhone.",
-    "Sin cuenta, sin registro, sin servidores. Tu plan y tus preferencias viven solo en tu iPhone.",
+    "No account, no sign-up. Your plan and preferences live on your iPhone — we only receive anonymous usage analytics.",
+    "Sin cuenta, sin registro. Tu plan y tus preferencias viven en tu iPhone — solo recibimos analíticas de uso anónimas.",
   ),
 
   // how it works
@@ -159,14 +173,16 @@ export const T = {
   ),
   priceYearlyName: c("Yearly", "Anual"),
   priceYearlyFlag: c("BEST VALUE · 3-DAY TRIAL", "MEJOR PRECIO · 3 DÍAS GRATIS"),
-  priceYearlySub: c("billed as $49.99 / year after trial", "se cobran $49.99/año tras la prueba"),
-  priceMonthlyName: c("Monthly", "Mensual"),
-  priceMonthlySub: c("billed monthly, cancel anytime", "cobro mensual, cancela cuando quieras"),
-  perMonth: c("/ month", "/ mes"),
+  priceYearlySub: c("$49.99 billed once a year after the free trial", "se cobran $49.99 una vez al año tras la prueba"),
+  priceWeeklyName: c("Weekly", "Semanal"),
+  priceWeeklySub: c("billed weekly, cancel anytime", "cobro semanal, cancela cuando quieras"),
+  perWeek: c("/ week", "/ semana"),
+  perYear: c("/ year", "/ año"),
+  priceYearlyBadge: c("just $0.96 / week", "sale a $0.96 / semana"),
   priceFeat1: c("Unlimited weekly meal plans", "Planes semanales ilimitados"),
   priceFeat2: c("All 229 recipes & grocery lists", "Las 229 recetas y listas de la compra"),
   priceFeat3: c("Unlimited swaps & favourites", "Cambios y favoritos ilimitados"),
-  priceFeat4: c("No ads, no account, fully private", "Sin anuncios, sin cuenta, privado"),
+  priceFeat4: c("No ads, no account needed", "Sin anuncios, sin cuenta"),
   priceNote: c("No payment due now.", "No pagas nada ahora."),
 
   // faq
@@ -202,8 +218,8 @@ export const FAQ: { q: Copy; a: Copy }[] = [
   {
     q: c("Do I need to create an account?", "¿Necesito crear una cuenta?"),
     a: c(
-      "No. Pick has no sign-up and no servers — your plan, preferences and favourites are stored only on your iPhone, so it works offline and stays private.",
-      "No. Pick no tiene registro ni servidores: tu plan, preferencias y favoritos se guardan solo en tu iPhone, así que funciona sin conexión y es privado.",
+      "No. Pick has no sign-up — your plan, preferences and favourites are stored on your iPhone, so it works offline. The only thing we receive is anonymous usage analytics (see our Privacy Policy).",
+      "No. Pick no tiene registro: tu plan, preferencias y favoritos se guardan en tu iPhone, así que funciona sin conexión. Lo único que recibimos son analíticas de uso anónimas (mira la Política de Privacidad).",
     ),
   },
   {
@@ -230,8 +246,8 @@ export const FAQ: { q: Copy; a: Copy }[] = [
   {
     q: c("How does the free trial work?", "¿Cómo funciona la prueba gratis?"),
     a: c(
-      "You get 3 days free. We remind you before it ends. If you don't cancel, it becomes an auto-renewing subscription ($49.99/year or $9.99/month) managed by Apple. Cancel anytime from your Apple account settings.",
-      "Tienes 3 días gratis. Te avisamos antes de que termine. Si no cancelas, pasa a una suscripción de renovación automática ($49.99/año o $9.99/mes) gestionada por Apple. Cancela cuando quieras desde los ajustes de tu cuenta de Apple.",
+      "You get 3 days free with the yearly plan. If you don't cancel, it becomes an auto-renewing subscription ($49.99/year, or $9.99/week on the weekly plan) managed by Apple. Cancel anytime from your Apple account settings.",
+      "Tienes 3 días gratis con el plan anual. Si no cancelas, pasa a una suscripción de renovación automática ($49.99/año, o $9.99/semana en el plan semanal) gestionada por Apple. Cancela cuando quieras desde los ajustes de tu cuenta de Apple.",
     ),
   },
   {

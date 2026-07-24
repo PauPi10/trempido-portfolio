@@ -64,8 +64,8 @@ export default function TermsPage() {
 
           <h2>7. Subscriptions and free trial</h2>
           <ul>
-            <li>Pick offers a subscription with a {PICK.pricing.trialDays}-day free trial, managed by Apple.</li>
-            <li>After the trial, the subscription auto-renews at {PICK.pricing.yearly}/year or {PICK.pricing.monthly}/month unless cancelled.</li>
+            <li>Pick offers auto-renewing subscriptions managed by Apple: a yearly plan with a {PICK.pricing.trialDays}-day free trial, and a weekly plan.</li>
+            <li>After the trial, the yearly subscription auto-renews at {PICK.pricing.yearly}/year; the weekly plan renews at {PICK.pricing.weekly}/week. Both renew unless cancelled.</li>
             <li>You can cancel at any time from your Apple account settings, at least 24 hours before the end of the current period to avoid the next charge.</li>
             <li>Payment is charged to your Apple ID. Exact price and trial terms are shown in the App Store before you subscribe.</li>
             <li>Except where required by law, payments are non-refundable; refunds are handled by Apple under its policies.</li>

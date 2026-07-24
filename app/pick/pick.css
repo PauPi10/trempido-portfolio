@@ -375,14 +375,13 @@
   display: grid;
   place-items: center;
 }
-.p-meal__emoji {
+.p-meal__photo {
   width: 46px;
   height: 46px;
   flex-shrink: 0;
   border-radius: 12px;
-  display: grid;
-  place-items: center;
-  font-size: 24px;
+  object-fit: cover;
+  display: block;
 }
 .p-meal__body { flex: 1; min-width: 0; }
 .p-meal__name {
@@ -551,34 +550,69 @@
   border-radius: 4px;
 }
 
-/* ── dishes strip ──────────────────────────────────────────── */
-.p-dishes {
+/* ── dish wall (real recipe photos, counter-scrolling rows) ── */
+.p-dishwall {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  gap: 16px;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
 }
-@media (min-width: 720px) { .p-dishes { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 1020px) { .p-dishes { grid-template-columns: repeat(6, 1fr); } }
-.p-dish {
-  border-radius: 20px;
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  font-size: clamp(40px, 6vw, 58px);
+.p-dishwall__track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: p-marquee 56s linear infinite;
+}
+.p-dishwall__track--rev {
+  animation-direction: reverse;
+  animation-duration: 64s;
+}
+.p-dishwall:hover .p-dishwall__track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .p-dishwall__track { animation: none; }
+}
+.p-dishcard {
   position: relative;
+  margin: 0;
+  width: clamp(170px, 22vw, 230px);
+  flex-shrink: 0;
+  border-radius: 22px;
   overflow: clip;
   border: 1px solid var(--p-line);
+  background: var(--p-white);
+  box-shadow: var(--p-shadow-soft);
 }
-.p-dish span {
+.p-dishcard img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+.p-dishcard:hover img { transform: scale(1.06); }
+.p-dishcard figcaption {
   position: absolute;
-  bottom: 9px;
-  left: 10px;
-  right: 10px;
-  font-size: 0.74rem;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 26px 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: linear-gradient(180deg, transparent, rgba(20, 20, 20, 0.62) 55%);
+  color: #fff;
+}
+.p-dishcard strong {
+  font-family: var(--p-font-display);
   font-weight: 800;
-  color: var(--p-green-dark);
-  text-align: center;
-  line-height: 1.1;
+  font-size: 0.86rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.p-dishcard figcaption span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  opacity: 0.85;
 }
 
 /* ── pricing ───────────────────────────────────────────────── */
@@ -632,6 +666,16 @@
   color: var(--p-sub);
 }
 .p-price__sub { color: var(--p-sub); font-size: 0.92rem; font-weight: 600; }
+.p-price__badge {
+  display: inline-block;
+  background: var(--p-green-soft);
+  color: var(--p-green-dark);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
 .p-price ul {
   list-style: none;
   margin: 20px 0 0;
@@ -696,11 +740,22 @@
   box-shadow: var(--p-shadow);
 }
 .p-cta .p-h2 { color: #fff; }
-.p-cta__emojis {
-  font-size: 2rem;
-  margin-bottom: 8px;
-  letter-spacing: 6px;
+.p-cta__photos {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
 }
+.p-cta__photos img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.35);
+}
+.p-cta__photos img + img { margin-left: -18px; }
+.p-cta__photos img:nth-child(2) { transform: rotate(3deg) translateY(-4px); }
+.p-cta__photos img:nth-child(3) { transform: rotate(-4deg); }
 
 /* ── footer ────────────────────────────────────────────────── */
 .p-footer {

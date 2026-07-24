@@ -5,16 +5,17 @@ import { useLanguage } from "@/lib/language-context"
 import { PICK } from "@/lib/pick-content"
 import { usePickT, breadcrumbLd, JsonLd } from "./bits"
 
-/** Small green "P" logo mark (SVG, no asset needed). */
+/** The real app logo (chef hat on green, from the iOS asset catalog). */
 export function PickMark({ size = 32 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <rect width="40" height="40" rx="11" fill="#6FB52C" />
-      <path
-        d="M14 29V12.5h6.6c3.4 0 5.7 2.1 5.7 5.3 0 3.2-2.3 5.4-5.7 5.4H17.8V29H14zm3.8-8.7h2.3c1.5 0 2.4-.9 2.4-2.4s-.9-2.4-2.4-2.4h-2.3v4.8z"
-        fill="#fff"
-      />
-    </svg>
+    <img
+      src="/images/pick/logo.png"
+      alt=""
+      width={size}
+      height={size}
+      style={{ borderRadius: Math.round(size * 0.28), display: "block" }}
+      aria-hidden="true"
+    />
   )
 }
 
@@ -95,7 +96,7 @@ export function PickFooter() {
           <div>
             <h4>{t("footMore")}</h4>
             <ul>
-              <li><a href={`mailto:${PICK.supportEmail}`}>{t("footSupport")}</a></li>
+              <li><Link href="/pick/support">{t("footSupport")}</Link></li>
               <li><a href="https://www.trempido.com">trempido</a></li>
             </ul>
           </div>
@@ -115,7 +116,11 @@ export function CtaBanner() {
     <section className="p-section p-section--tight">
       <div className="p-wrap">
         <div className="p-cta">
-          <div className="p-cta__emojis" aria-hidden="true">🍋 🥑 🍅 🌶️</div>
+          <div className="p-cta__photos" aria-hidden="true">
+            {["chicken-ramen-bowl", "beef-tacos", "greek-chicken-salad"].map((id) => (
+              <img key={id} src={`/images/pick/dishes/${id}.jpg`} alt="" width={72} height={72} loading="lazy" />
+            ))}
+          </div>
           <h2 className="p-h2">{t("ctaTitle")}</h2>
           <p className="p-lead" style={{ margin: "16px auto 30px", color: "rgba(255,255,255,0.88)" }}>
             {t("ctaBody")}
@@ -179,7 +184,7 @@ export function LegalChrome({ children }: { children: React.ReactNode }) {
             <span>© 2026 Pick · TREMPIDO SL</span>
             <span>
               <Link href="/pick/privacy">Privacy</Link> · <Link href="/pick/terms">Terms</Link> ·{" "}
-              <Link href="/pick/legal">Legal Notice</Link>
+              <Link href="/pick/legal">Legal Notice</Link> · <Link href="/pick/support">Support</Link>
             </span>
           </div>
         </div>

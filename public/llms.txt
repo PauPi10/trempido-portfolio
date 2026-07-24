@@ -1,6 +1,6 @@
 # trempido.com
 
-> Portfolio of iOS apps by indie developer Pau Pidelaserra: Kari (AI charisma coach by voice), Restory (AI photo restoration) and Umi (birthday reminders).
+> Portfolio of iOS apps by indie developer Pau Pidelaserra: Kari (AI charisma coach by voice), Pick (weekly meal planner on a budget), Restory (AI photo restoration) and Umi (birthday reminders).
 
 ## Kari — AI charisma coach, by voice
 
@@ -18,6 +18,18 @@ Evidence base: simulated exposure matches in-vivo exposure for public-speaking f
 - [Pricing](https://karicoach.app/pricing): plans and minute packs
 - [FAQ](https://karicoach.app/faq): common questions
 - [App Store](https://apps.apple.com/app/id6788028264): download Kari for iPhone
+
+## Pick — weekly meal planner, on your budget
+
+Pick is an iPhone app (iOS 17+) that plans a week of dinners around a weekly budget, dietary preferences and what's in the user's kitchen, then produces a grocery list sorted by aisle. The user answers a short quiz once (supermarket, household size, cooking days, weekly budget, food "vibes" like speedy/low-cal/family/fakeaway, diets, allergens, liked proteins, appliances) and Pick assembles a varied week — never the same protein two days running — under the budget, with the estimated cost at the chosen store (Walmart, Aldi, Kroger, Target, Safeway, Publix, Trader Joe's, Costco or Whole Foods). Any night can be swapped for a fresh idea.
+
+Content: 229 dinner recipes with real ingredients, step-by-step instructions, macros, estimated prices, cook times and photos. No account and no servers: plans and preferences live on the device. Subscription-based: $49.99/year with a 3-day free trial, or $9.99/week; managed by Apple.
+
+- [Pick overview](https://www.trempido.com/pick): what Pick is and how it plans the week
+- [Support](https://www.trempido.com/pick/support): help with subscriptions, restores and refunds
+- [Privacy policy](https://www.trempido.com/pick/privacy)
+- [Terms of use](https://www.trempido.com/pick/terms)
+- [App Store](https://apps.apple.com/app/id6794273453): download Pick for iPhone
 
 ## Other apps
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { PICK, SUPERMARKETS, DISHES, FAQ } from "@/lib/pick-content"
+import { PICK, SUPERMARKETS, DISHES, FAQ, dishImg } from "@/lib/pick-content"
 import { usePickT, usePickLang, Reveal } from "./bits"
 import { PickNav, PickFooter, CtaBanner } from "./chrome"
 
@@ -40,10 +40,11 @@ export function PickLanding() {
     { k: t("s3k"), t: t("s3t"), b: t("s3b") },
   ]
 
+  // Real recipes from the catalog (times & estimated prices from recipes.json)
   const planMeals = [
-    { day: "Mon", emoji: "🍜", bg: "var(--p-peach)", name: lang === "es" ? "Ramen de pollo" : "Chicken ramen", meta: "18m · $6.40" },
-    { day: "Tue", emoji: "🌮", bg: "var(--p-orange)", name: lang === "es" ? "Tacos de ternera" : "Beef tacos", meta: "25m · $7.10" },
-    { day: "Wed", emoji: "🐟", bg: "var(--p-blue)", name: lang === "es" ? "Salmón al limón" : "Lemon herb salmon", meta: "20m · $8.20" },
+    { day: "Mon", img: dishImg("chicken-ramen-bowl"), name: lang === "es" ? "Ramen de pollo" : "Chicken Ramen Bowl", meta: "15m · $3.22" },
+    { day: "Tue", img: dishImg("beef-tacos"), name: lang === "es" ? "Tacos de ternera" : "Beef Tacos", meta: "30m · $5.72" },
+    { day: "Wed", img: dishImg("lemon-herb-salmon"), name: lang === "es" ? "Salmón al limón" : "Lemon Herb Salmon", meta: "30m · $6.55" },
   ]
 
   return (
@@ -101,7 +102,7 @@ export function PickLanding() {
             {planMeals.map((m) => (
               <div className="p-meal" key={m.day}>
                 <div className="p-meal__day">{m.day}</div>
-                <div className="p-meal__emoji" style={{ background: m.bg }}>{m.emoji}</div>
+                <img className="p-meal__photo" src={m.img} alt={m.name} width={46} height={46} />
                 <div className="p-meal__body">
                   <div className="p-meal__name">{m.name}</div>
                   <div className="p-meal__meta">{m.meta}</div>
@@ -179,14 +180,29 @@ export function PickLanding() {
             <h2 className="p-h2">{t("dishesTitle")}</h2>
             <p className="p-lead">{t("dishesLead")}</p>
           </Reveal>
-          <Reveal className="p-dishes">
-            {DISHES.map((d) => (
-              <div className="p-dish" key={d.en} style={{ background: d.bg }}>
-                <span aria-hidden="true" style={{ fontSize: "inherit", position: "static" }}>{d.emoji}</span>
-                <span>{lang === "es" ? d.es : d.en}</span>
-              </div>
-            ))}
-          </Reveal>
+        </div>
+
+        {/* full-bleed wall of real recipe photos, two counter-scrolling rows */}
+        <div className="p-dishwall" aria-label={t("dishesTitle")}>
+          {[DISHES.slice(0, 8), DISHES.slice(8)].map((row, ri) => (
+            <div className={`p-dishwall__track ${ri === 1 ? "p-dishwall__track--rev" : ""}`} key={ri}>
+              {[...row, ...row].map((d, i) => (
+                <figure className="p-dishcard" key={`${d.id}-${i}`} aria-hidden={i >= row.length}>
+                  <img
+                    src={dishImg(d.id)}
+                    alt={i < row.length ? (lang === "es" ? d.es : d.en) : ""}
+                    width={560}
+                    height={560}
+                    loading="lazy"
+                  />
+                  <figcaption>
+                    <strong>{lang === "es" ? d.es : d.en}</strong>
+                    <span>{d.minutes}m · {d.price}</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -202,7 +218,8 @@ export function PickLanding() {
             <Reveal className="p-price p-price--best">
               <span className="p-price__flag">{t("priceYearlyFlag")}</span>
               <div className="p-price__name">{t("priceYearlyName")}</div>
-              <div className="p-price__amount">{PICK.pricing.yearlyMonthly} <small>{t("perMonth")}</small></div>
+              <div className="p-price__amount">{PICK.pricing.yearly} <small>{t("perYear")}</small></div>
+              <div className="p-price__badge">{t("priceYearlyBadge")}</div>
               <div className="p-price__sub">{t("priceYearlySub")}</div>
               <ul>
                 <li><Check /> {t("priceFeat1")}</li>
@@ -212,9 +229,9 @@ export function PickLanding() {
               </ul>
             </Reveal>
             <Reveal className="p-price" delay={0.08}>
-              <div className="p-price__name">{t("priceMonthlyName")}</div>
-              <div className="p-price__amount">{PICK.pricing.monthly} <small>{t("perMonth")}</small></div>
-              <div className="p-price__sub">{t("priceMonthlySub")}</div>
+              <div className="p-price__name">{t("priceWeeklyName")}</div>
+              <div className="p-price__amount">{PICK.pricing.weekly} <small>{t("perWeek")}</small></div>
+              <div className="p-price__sub">{t("priceWeeklySub")}</div>
               <ul>
                 <li><Check /> {t("priceFeat1")}</li>
                 <li><Check /> {t("priceFeat2")}</li>
