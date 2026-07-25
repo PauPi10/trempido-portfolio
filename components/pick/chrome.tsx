@@ -141,9 +141,9 @@ export function PickFooter({ lang }: { lang: Lang }) {
           <div>
             <h4>{t("footLegal")}</h4>
             <ul>
-              <li><Link href={paths.privacy}>{t("footPrivacy")}</Link></li>
-              <li><Link href={paths.terms}>{t("footTerms")}</Link></li>
-              <li><Link href={paths.legal}>{t("footLegalNotice")}</Link></li>
+              <li><Link href={paths.privacy(lang)}>{t("footPrivacy")}</Link></li>
+              <li><Link href={paths.terms(lang)}>{t("footTermsShort")}</Link></li>
+              <li><Link href={paths.legal(lang)}>{t("footLegalNotice")}</Link></li>
               <li><Link href={paths.support}>{t("footSupport")}</Link></li>
             </ul>
           </div>
@@ -247,17 +247,24 @@ export function PageHead({
   )
 }
 
-/** Static nav + footer for the English-only legal pages. */
-export function LegalChrome({ children }: { children: React.ReactNode }) {
+/** Nav + footer for the legal pages, in either language. */
+export function LegalChrome({ children, lang = "en" }: { children: React.ReactNode; lang?: Lang }) {
+  const t = tr(lang)
+  const other: Lang = lang === "es" ? "en" : "es"
   return (
     <>
       <nav className="p-nav">
         <div className="p-wrap p-nav__inner">
-          <Link href="/pick" className="p-nav__logo">
+          <Link href={paths.home(lang)} className="p-nav__logo">
             <PickMark />
             <span>pick</span>
           </Link>
-          <AppStoreButton lang="en" />
+          <div className="p-nav__right">
+            <Link className="p-lang" href={paths.home(other)} hrefLang={other} lang={other}>
+              {other.toUpperCase()}
+            </Link>
+            <AppStoreButton lang={lang} />
+          </div>
         </div>
       </nav>
       {children}
@@ -266,8 +273,10 @@ export function LegalChrome({ children }: { children: React.ReactNode }) {
           <div className="p-footer__bottom" style={{ borderTop: 0, paddingTop: 0 }}>
             <span>© 2026 Pick · TREMPIDO SL</span>
             <span>
-              <Link href="/pick/privacy">Privacy</Link> · <Link href="/pick/terms">Terms</Link> ·{" "}
-              <Link href="/pick/legal">Legal Notice</Link> · <Link href="/pick/support">Support</Link>
+              <Link href={paths.privacy(lang)}>{t("footPrivacy")}</Link> ·{" "}
+              <Link href={paths.terms(lang)}>{t("footTermsShort")}</Link> ·{" "}
+              <Link href={paths.legal(lang)}>{t("footLegalNotice")}</Link> ·{" "}
+              <Link href={paths.support}>{t("footSupport")}</Link>
             </span>
           </div>
         </div>
@@ -276,12 +285,22 @@ export function LegalChrome({ children }: { children: React.ReactNode }) {
   )
 }
 
-/** Kept for the legal pages that still import the old header shape. */
-export function LegalHeader({ crumb, eyebrow, title }: { crumb: string; eyebrow: string; title: string }) {
+/** Page header for the legal pages. */
+export function LegalHeader({
+  crumb,
+  eyebrow,
+  title,
+  lang = "en",
+}: {
+  crumb: string
+  eyebrow: string
+  title: string
+  lang?: Lang
+}) {
   return (
     <PageHead
-      lang="en"
-      crumbs={[{ name: "Pick", path: "/pick" }, { name: crumb, path: "" }]}
+      lang={lang}
+      crumbs={[{ name: "Pick", path: paths.home(lang) }, { name: crumb, path: "" }]}
       eyebrow={eyebrow}
       title={title}
     />

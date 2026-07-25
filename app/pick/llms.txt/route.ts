@@ -57,8 +57,9 @@ ${esStores}
 ## Support and legal
 
 - [Support](${abs(paths.support)}): subscriptions, restores, refunds
-- [Privacy policy](${abs(paths.privacy)}): no account, plan stays on device, anonymous EU-hosted analytics
-- [Terms of use](${abs(paths.terms)})
+- [Privacy policy](${abs(paths.privacy("en"))}): no account, plan stays on device, anonymous EU-hosted analytics
+- [Terms of use / EULA](${abs(paths.terms("en"))}): custom EULA including Apple's minimum terms
+- [Condiciones de uso (EULA)](${abs(paths.terms("es"))}) · [Política de privacidad](${abs(paths.privacy("es"))})
 - [App Store](${PICK.appStoreUrl}): download Pick for iPhone
 
 ## Contact

@@ -5,7 +5,14 @@ import { LegalChrome, LegalHeader } from "@/components/pick/chrome"
 export const metadata: Metadata = {
   title: "Legal Notice",
   description: "Legal notice and owner identification for Pick, published by TREMPIDO SL.",
-  alternates: { canonical: "/pick/legal" },
+  alternates: {
+    canonical: "/pick/legal",
+    languages: {
+      en: "https://www.trempido.com/pick/legal",
+      "es-ES": "https://www.trempido.com/pick/es/aviso-legal",
+      "x-default": "https://www.trempido.com/pick/legal",
+    },
+  },
 }
 
 export default function LegalPage() {

@@ -21,10 +21,7 @@ const routes: Row[] = [
   { path: "/umi", priority: 0.5, freq: "monthly" },
   { path: "/umi/privacy", priority: 0.2, freq: "yearly" },
   { path: "/umi/terms", priority: 0.2, freq: "yearly" },
-  // Pick legal + support (English only)
-  { path: "/pick/privacy", priority: 0.2, freq: "yearly" },
-  { path: "/pick/terms", priority: 0.2, freq: "yearly" },
-  { path: "/pick/legal", priority: 0.2, freq: "yearly" },
+  // Pick support (English only — the legal pages are paired in pickRoutes)
   { path: "/pick/support", priority: 0.3, freq: "yearly" },
 ]
 
@@ -39,6 +36,11 @@ function pickRoutes(): Row[] {
 
   pair(paths.home("en"), paths.home("es"), 1, "weekly")
   pair(paths.recipes("en"), paths.recipes("es"), 0.9, "weekly")
+
+  // Legal pages exist in both languages too (the EULA is the contract).
+  pair(paths.terms("en"), paths.terms("es"), 0.3, "yearly")
+  pair(paths.privacy("en"), paths.privacy("es"), 0.3, "yearly")
+  pair(paths.legal("en"), paths.legal("es"), 0.2, "yearly")
 
   for (const c of COLLECTIONS) {
     pair(paths.collection("en", c.slug.en), paths.collection("es", c.slug.es), 0.8, "weekly")

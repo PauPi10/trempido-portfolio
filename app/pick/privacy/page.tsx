@@ -5,7 +5,14 @@ import { LegalChrome, LegalHeader } from "@/components/pick/chrome"
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Pick's privacy policy: no account, your plan stays on your iPhone, anonymous EU-hosted usage analytics.",
-  alternates: { canonical: "/pick/privacy" },
+  alternates: {
+    canonical: "/pick/privacy",
+    languages: {
+      en: "https://www.trempido.com/pick/privacy",
+      "es-ES": "https://www.trempido.com/pick/es/privacidad",
+      "x-default": "https://www.trempido.com/pick/privacy",
+    },
+  },
 }
 
 export default function PrivacyPage() {

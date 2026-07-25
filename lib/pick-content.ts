@@ -86,9 +86,11 @@ export const paths = {
   collection: (lang: Lang, slug: string) => `${seg(lang, "collections", "colecciones")}/${slug}`,
   stores: (lang: Lang) => seg(lang, "supermarkets", "supermercados"),
   store: (lang: Lang, slug: string) => `${seg(lang, "supermarkets", "supermercados")}/${slug}`,
-  privacy: "/pick/privacy",
-  terms: "/pick/terms",
-  legal: "/pick/legal",
+  // Legal pages exist in both languages: the EULA is the contract the user is
+  // agreeing to, so a Spanish buyer gets it in Spanish.
+  privacy: (lang: Lang) => (lang === "es" ? "/pick/es/privacidad" : "/pick/privacy"),
+  terms: (lang: Lang) => (lang === "es" ? "/pick/es/terminos" : "/pick/terms"),
+  legal: (lang: Lang) => (lang === "es" ? "/pick/es/aviso-legal" : "/pick/legal"),
   support: "/pick/support",
 }
 
@@ -279,6 +281,7 @@ export const T = {
   footPrivacy: c("Privacy Policy", "Privacidad"),
   footTerms: c("Terms of Use", "Términos de uso"),
   footLegalNotice: c("Legal Notice", "Aviso legal"),
+  footTermsShort: c("Terms of Use (EULA)", "Condiciones (EULA)"),
   footSupport: c("Support", "Soporte"),
   footMadeFor: c("Made for iPhone · by Trempido", "Hecho para iPhone · por Trempido"),
 
