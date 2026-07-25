@@ -35,7 +35,7 @@ export const PRICING: Record<Lang, {
   storefront: string
 }> = {
   en: { trialDays: 3, yearly: "$49.99", yearlyWeekly: "$0.96", weekly: "$9.99", storefront: "US App Store" },
-  es: { trialDays: 3, yearly: "39,99 €", yearlyWeekly: "0,77 €", weekly: "9,99 €", storefront: "App Store de España" },
+  es: { trialDays: 3, yearly: "59,99 €", yearlyWeekly: "1,15 €", weekly: "9,99 €", storefront: "App Store de España" },
 }
 
 // ── supermarkets (Supermarket enum in Models.swift) ──────────────────────────
@@ -394,7 +394,7 @@ export const FAQ: { q: Copy; a: Copy }[] = [
     q: c("How does the free trial work?", "¿Cómo funciona la prueba gratis?"),
     a: c(
       "You get 3 days free with the yearly plan. If you don't cancel, it becomes an auto-renewing subscription ($49.99/year, or $9.99/week on the weekly plan) managed by Apple. Pick also sends you a reminder on your iPhone about 24 hours before it converts. Cancel anytime from your Apple account settings.",
-      "Tienes 3 días gratis con el plan anual. Si no cancelas, pasa a una suscripción de renovación automática (39,99 €/año, o 9,99 €/semana en el plan semanal) gestionada por Apple. Pick además te avisa en el iPhone unas 24 horas antes de que se cobre. Cancela cuando quieras desde los ajustes de tu cuenta de Apple.",
+      "Tienes 3 días gratis con el plan anual. Si no cancelas, pasa a una suscripción de renovación automática (59,99 €/año, o 9,99 €/semana en el plan semanal) gestionada por Apple. Pick además te avisa en el iPhone unas 24 horas antes de que se cobre. Cancela cuando quieras desde los ajustes de tu cuenta de Apple.",
     ),
   },
   {

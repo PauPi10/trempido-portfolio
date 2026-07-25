@@ -51,9 +51,11 @@ export default function PrivacyPage() {
             analytics</strong> to PostHog, an analytics provider whose servers for our project are located in
             the <strong>European Union</strong>. This includes events such as which screens are viewed,
             onboarding answers (for example your selected supermarket, household size or dietary
-            preferences), plan generations and purchases, together with a randomly generated identifier and
-            standard device information (device model, iOS version, app version, language). Session replays
-            of in-app interactions may also be recorded with text inputs and images masked. This data is not
+            preferences &mdash; never your allergen selections, which stay on your device), plan generations
+            and purchases, together with a device identifier (Apple&rsquo;s identifier for vendor, which is
+            specific to our apps and resets if you delete them) and standard device information (device
+            model, iOS version, app version, language). Session replays of in-app interactions may also be
+            recorded, with text inputs and images masked and the allergy screens excluded. This data is not
             tied to your name, email or any account (there are none), and we do not use it for advertising
             or sell it to anyone.
           </p>

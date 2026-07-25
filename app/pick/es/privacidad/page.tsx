@@ -53,11 +53,13 @@ export default function PrivacidadPage() {
             Para entender cómo se usa la app y mejorarla, Pick envía <strong>analíticas de uso anónimas</strong>{" "}
             a PostHog, un proveedor de analítica cuyos servidores para nuestro proyecto están en la{" "}
             <strong>Unión Europea</strong>. Incluyen eventos como qué pantallas se ven, las respuestas del
-            onboarding (por ejemplo el supermercado elegido, el tamaño del hogar o las preferencias de dieta), la
-            generación de planes y las compras, junto con un identificador generado aleatoriamente e información
-            estándar del dispositivo (modelo, versión de iOS, versión de la app, idioma). También pueden
-            grabarse repeticiones de sesión de la interacción dentro de la app, con los campos de texto y las
-            imágenes enmascarados. Estos datos no están vinculados a tu nombre, tu correo ni a ninguna cuenta (no
+            onboarding (por ejemplo el supermercado elegido, el tamaño del hogar o las preferencias de dieta;
+            nunca los alérgenos que excluyes, que no salen de tu dispositivo), la generación de planes y las
+            compras, junto con un identificador del dispositivo (el identifier for vendor de Apple, propio de
+            nuestras apps, que se reinicia si las eliminas) e información estándar del dispositivo (modelo,
+            versión de iOS, versión de la app, idioma). También pueden grabarse repeticiones de sesión de la
+            interacción dentro de la app, con los campos de texto y las imágenes enmascarados y las pantallas
+            de alergias excluidas. Estos datos no están vinculados a tu nombre, tu correo ni a ninguna cuenta (no
             existen), y no los usamos para publicidad ni los vendemos a nadie.
           </p>
 
