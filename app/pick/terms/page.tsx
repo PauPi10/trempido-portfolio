@@ -56,9 +56,12 @@ export default function TermsPage() {
           <p>
             Recipe information — including calories, macronutrients, ingredients and allergen filters — is
             provided for general guidance and may contain errors or omissions. Allergen and dietary filters
-            are a guide only and are <strong>not a guarantee</strong>. Always read the label of the products
-            you buy and prepare food safely. If you have a food allergy, intolerance or medical condition,
-            rely on packaging and professional advice, not on the app.
+            are a guide only and are <strong>not a guarantee</strong>: they describe the ingredients a recipe
+            calls for, and cannot account for the specific products you buy, for &ldquo;may contain&rdquo;
+            warnings, or for <strong>traces and cross-contamination</strong> introduced during manufacturing,
+            packaging or cooking. Always read the label of the products you buy and prepare food safely. If you
+            have a food allergy, intolerance or medical condition, rely on packaging and professional advice,
+            not on the app.
           </p>
 
           <h2>4. Price estimates and recipe photos</h2>

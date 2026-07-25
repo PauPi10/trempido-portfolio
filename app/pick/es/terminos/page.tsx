@@ -57,8 +57,11 @@ export default function TerminosPage() {
           <p>
             La información de las recetas — calorías, macronutrientes, ingredientes y filtros de alérgenos — es
             orientativa y puede contener errores u omisiones. Los filtros de alérgenos y de dieta son una guía
-            y <strong>no una garantía</strong>. Lee siempre la etiqueta de los productos que compres y manipula
-            los alimentos de forma segura. Si tienes una alergia alimentaria, una intolerancia o una condición
+            y <strong>no una garantía</strong>: describen los ingredientes que pide la receta y no pueden tener
+            en cuenta los productos concretos que compres, los avisos de tipo &laquo;puede contener&raquo; ni
+            las <strong>trazas y la contaminación cruzada</strong> que se producen en la fabricación, el
+            envasado o el cocinado. Lee siempre la etiqueta de los productos que compres y manipula los
+            alimentos de forma segura. Si tienes una alergia alimentaria, una intolerancia o una condición
             médica, guíate por el etiquetado y por consejo profesional, no por la app.
           </p>
 
