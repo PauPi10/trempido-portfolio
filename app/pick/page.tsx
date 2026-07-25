@@ -1,12 +1,14 @@
-"use client"
+import { PickLanding, landingLd } from "@/components/pick/landing"
+import { JsonLd } from "@/components/pick/jsonld"
+import { homeMeta } from "@/lib/pick-meta"
 
-import { LanguageProvider } from "@/lib/language-context"
-import { PickLanding } from "@/components/pick/landing"
+export const metadata = homeMeta("en")
 
-export default function PickPage() {
+export default function Page() {
   return (
-    <LanguageProvider defaultLang="en">
-      <PickLanding />
-    </LanguageProvider>
+    <>
+      <JsonLd data={landingLd("en")} />
+      <PickLanding lang="en" />
+    </>
   )
 }

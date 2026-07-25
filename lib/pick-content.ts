@@ -1,97 +1,170 @@
-// Real product content for the Pick marketing pages, taken straight from the
-// iOS app (Models.swift, Store.swift, PaywallView.swift). English-first with a
-// Spanish translation for the on-site toggle. Single source of truth for /pick/*.
+// Brand facts, URLs and every string on the Pick marketing pages, in both
+// languages. Everything here is checked against the iOS app (Models.swift,
+// PaywallView.swift, recipes.json) — if the app changes, this changes.
+//
+// Safe to import from anywhere: no recipe JSON lives here (see pick-catalog.ts).
+
+export type Lang = "en" | "es"
+export const LANGS: Lang[] = ["en", "es"]
 
 export const PICK = {
   name: "Pick",
-  siteUrl: "https://www.trempido.com/pick",
+  origin: "https://www.trempido.com",
   appStoreUrl: "https://apps.apple.com/app/id6794273453",
   tagline: "eat well, stress less",
   supportEmail: "hello@trempido.com",
-  recipeCount: 229,
-  // Legal owner (Aviso Legal · LSSI-CE)
+  /** Both catalogs ship 349 dinners (recipes.json / recipes_es.json). */
+  recipeCount: 349,
   company: {
     name: "TREMPIDO SL",
     taxId: "B75830257",
     address: "Carrer Nil Fabra 16, Escalera A, Ático 2ª, 08012 Barcelona, España",
   },
-  // Must match the App Store products (annual w/ trial + weekly, PaywallView.swift)
-  pricing: {
-    trialDays: 3,
-    yearly: "$49.99",
-    yearlyWeekly: "$0.96",
-    weekly: "$9.99",
-  },
 } as const
 
-export type Lang = "en" | "es"
+/**
+ * Real App Store prices per storefront. The Spanish tier is NOT the dollar
+ * figure converted — it is set separately in App Store Connect, so it gets its
+ * own numbers here. Showing the wrong one is a 3.1.2 problem.
+ */
+export const PRICING: Record<Lang, {
+  trialDays: number
+  yearly: string
+  yearlyWeekly: string
+  weekly: string
+  storefront: string
+}> = {
+  en: { trialDays: 3, yearly: "$49.99", yearlyWeekly: "$0.96", weekly: "$9.99", storefront: "US App Store" },
+  es: { trialDays: 3, yearly: "39,99 €", yearlyWeekly: "0,77 €", weekly: "9,99 €", storefront: "App Store de España" },
+}
 
-// Supermarkets the app plans around (Supermarket enum) with a brand colour.
-export const SUPERMARKETS: { name: string; color: string }[] = [
-  { name: "Walmart", color: "#0071CE" },
-  { name: "Aldi", color: "#1B3C8C" },
-  { name: "Kroger", color: "#0F4194" },
-  { name: "Target", color: "#CC0000" },
-  { name: "Safeway", color: "#DD2C27" },
-  { name: "Publix", color: "#038542" },
-  { name: "Trader Joe's", color: "#A22B2F" },
-  { name: "Costco", color: "#E31837" },
-  { name: "Whole Foods", color: "#00584C" },
+// ── supermarkets (Supermarket enum in Models.swift) ──────────────────────────
+
+export type Store = {
+  slug: string
+  name: string
+  /** File in /public/images/pick/stores. */
+  logo: string
+  markets: Lang[]
+}
+
+export const STORES: Store[] = [
+  // US storefront
+  { slug: "walmart", name: "Walmart", logo: "walmart", markets: ["en"] },
+  { slug: "kroger", name: "Kroger", logo: "kroger", markets: ["en"] },
+  { slug: "target", name: "Target", logo: "target", markets: ["en"] },
+  { slug: "safeway", name: "Safeway", logo: "safeway", markets: ["en"] },
+  { slug: "publix", name: "Publix", logo: "publix", markets: ["en"] },
+  { slug: "trader-joes", name: "Trader Joe's", logo: "traderjoes", markets: ["en"] },
+  { slug: "costco", name: "Costco", logo: "costco", markets: ["en"] },
+  { slug: "whole-foods", name: "Whole Foods", logo: "wholefoods", markets: ["en"] },
+  // Spain
+  { slug: "mercadona", name: "Mercadona", logo: "mercadona", markets: ["es"] },
+  { slug: "carrefour", name: "Carrefour", logo: "carrefour", markets: ["es"] },
+  { slug: "lidl", name: "Lidl", logo: "lidl", markets: ["es"] },
+  { slug: "dia", name: "Dia", logo: "dia", markets: ["es"] },
+  { slug: "eroski", name: "Eroski", logo: "eroski", markets: ["es"] },
+  { slug: "alcampo", name: "Alcampo", logo: "alcampo", markets: ["es"] },
+  { slug: "el-corte-ingles", name: "El Corte Inglés", logo: "elcorteingles", markets: ["es"] },
+  { slug: "consum", name: "Consum", logo: "consum", markets: ["es"] },
+  // Both storefronts
+  { slug: "aldi", name: "Aldi", logo: "aldi", markets: ["en", "es"] },
 ]
 
-// Real dishes from the app's catalog (recipes.json) with their actual photos,
-// times and estimated prices. Images live in /public/images/pick/dishes/.
-export type Dish = { id: string; en: string; es: string; minutes: number; price: string; tag: string }
-export const DISHES: Dish[] = [
-  { id: "chicken-ramen-bowl", en: "Chicken Ramen Bowl", es: "Ramen de pollo", minutes: 15, price: "$3.22", tag: "Protein" },
-  { id: "beef-tacos", en: "Beef Tacos", es: "Tacos de ternera", minutes: 30, price: "$5.72", tag: "Protein" },
-  { id: "lemon-herb-salmon", en: "Lemon Herb Salmon", es: "Salmón al limón", minutes: 30, price: "$6.55", tag: "Protein" },
-  { id: "aglio-e-olio-spaghetti", en: "Aglio e Olio Spaghetti", es: "Espaguetis aglio e olio", minutes: 20, price: "$3.12", tag: "Speedy" },
-  { id: "chicken-tikka-masala-rice", en: "Chicken Tikka Masala", es: "Tikka masala de pollo", minutes: 40, price: "$5.37", tag: "Protein" },
-  { id: "greek-chicken-salad", en: "Greek Chicken Salad", es: "Ensalada griega de pollo", minutes: 20, price: "$3.81", tag: "Low cal" },
-  { id: "homemade-burgers", en: "Homemade Burgers", es: "Hamburguesas caseras", minutes: 35, price: "$5.47", tag: "Fakeaway" },
-  { id: "burrito-bowls", en: "Burrito Bowls", es: "Burrito bowls", minutes: 20, price: "$6.55", tag: "Fakeaway" },
-  { id: "low-cal-katsu-curry", en: "Low Cal Katsu Curry", es: "Katsu curry ligero", minutes: 30, price: "$4.78", tag: "Fakeaway" },
-  { id: "prawn-stir-fry", en: "Prawn Stir Fry", es: "Salteado de gambas", minutes: 20, price: "$5.37", tag: "Speedy" },
-  { id: "meatball-pasta", en: "Meatball Pasta", es: "Pasta con albóndigas", minutes: 40, price: "$3.62", tag: "Comfort" },
-  { id: "loaded-taco-fries", en: "Loaded Taco Fries", es: "Patatas taco cargadas", minutes: 30, price: "$5.47", tag: "Fakeaway" },
-  { id: "cheesy-tomato-risotto", en: "Cheesy Tomato Risotto", es: "Risotto de tomate y queso", minutes: 35, price: "$4.54", tag: "Family" },
-  { id: "garlic-chilli-chicken-noodles", en: "Garlic Chilli Noodles", es: "Noodles de pollo al chile", minutes: 30, price: "$7.79", tag: "Fakeaway" },
-  { id: "mini-pizza-bagels", en: "Mini Pizza Bagels", es: "Mini bagels pizza", minutes: 20, price: "$3.03", tag: "Family" },
-  { id: "peri-peri-salmon-rice", en: "Peri Peri Salmon Rice", es: "Arroz de salmón peri peri", minutes: 30, price: "$6.93", tag: "Protein" },
-]
+export const storesFor = (lang: Lang) => STORES.filter((s) => s.markets.includes(lang))
+export const storeBySlug = (slug: string) => STORES.find((s) => s.slug === slug)
+export const storeLogo = (s: Store) => `/images/pick/stores/${s.logo}.webp`
 
-export const dishImg = (id: string) => `/images/pick/dishes/${id}.jpg`
+// ── URLs ─────────────────────────────────────────────────────────────────────
+
+const seg = (lang: Lang, en: string, es: string) => (lang === "es" ? `/pick/es/${es}` : `/pick/${en}`)
+
+export const paths = {
+  home: (lang: Lang) => (lang === "es" ? "/pick/es" : "/pick"),
+  recipes: (lang: Lang) => seg(lang, "recipes", "recetas"),
+  recipe: (lang: Lang, id: string) => `${seg(lang, "recipes", "recetas")}/${id}`,
+  collection: (lang: Lang, slug: string) => `${seg(lang, "collections", "colecciones")}/${slug}`,
+  stores: (lang: Lang) => seg(lang, "supermarkets", "supermercados"),
+  store: (lang: Lang, slug: string) => `${seg(lang, "supermarkets", "supermercados")}/${slug}`,
+  privacy: "/pick/privacy",
+  terms: "/pick/terms",
+  legal: "/pick/legal",
+  support: "/pick/support",
+}
+
+export const abs = (path: string) => `${PICK.origin}${path}`
+
+/**
+ * canonical + hreflang for a page that exists in both languages. Pages with no
+ * counterpart (a US-only store, say) pass only their own language.
+ */
+export function alternates(lang: Lang, byLang: Partial<Record<Lang, string>>) {
+  const languages: Record<string, string> = {}
+  if (byLang.en) languages["en"] = abs(byLang.en)
+  if (byLang.es) languages["es-ES"] = abs(byLang.es)
+  if (byLang.en) languages["x-default"] = abs(byLang.en)
+  return { canonical: abs(byLang[lang]!), languages }
+}
+
+/** Photos published from the app's asset catalog, two widths. */
+export const dishImg = (id: string, size: 360 | 720 = 720) => `/images/pick/dishes/${id}-${size}.webp`
+
+// ── copy ─────────────────────────────────────────────────────────────────────
 
 type Copy = { en: string; es: string }
 const c = (en: string, es: string): Copy => ({ en, es })
 
 export const T = {
-  // nav
+  // nav / chrome
   navHow: c("How it works", "Cómo funciona"),
   navFeatures: c("Features", "Características"),
+  navRecipes: c("Recipes", "Recetas"),
+  navStores: c("Supermarkets", "Supermercados"),
   navPricing: c("Pricing", "Precios"),
   navFaq: c("FAQ", "Preguntas"),
   getApp: c("Get the app", "Descargar"),
+  menu: c("Menu", "Menú"),
 
   // hero
   heroBadge: c("For iPhone", "Para iPhone"),
   heroTitleA: c("eat well,", "come bien,"),
   heroTitleB: c("stress less", "sin estrés"),
+  heroKicker: c(
+    "Weekly meal planner & grocery list for iPhone",
+    "Planificador de menús semanales y lista de la compra para iPhone",
+  ),
   heroLead: c(
     "Pick plans your week of dinners around your budget, your cravings and what's already in your kitchen — then hands you a grocery list sorted by aisle.",
     "Pick planifica tu semana de cenas según tu presupuesto, tus antojos y lo que ya tienes en la cocina, y te da la lista de la compra ordenada por pasillo.",
   ),
   heroCta: c("Get Pick", "Descargar Pick"),
   heroCta2: c("See how it works", "Ver cómo funciona"),
-  metaRecipes: c("recipes", "recetas"),
+  metaRecipes: c("dinner recipes", "recetas de cena"),
   metaNoAccount: c("no account needed", "sin cuenta"),
   metaOffline: c("works offline", "funciona sin conexión"),
 
   // hero plan artifact
   planTitle: c("your week", "tu semana"),
-  planChip: c("Walmart", "Walmart"),
   planFoot: c("Grocery list ready", "Lista de la compra lista"),
+
+  // proof band
+  proofRecipes: c("dinners in the app", "cenas en la app"),
+  proofUnder30: c("ready in 30 min or less", "listas en 30 min o menos"),
+  proofAvg: c("average cost per serving", "coste medio por ración"),
+  proofStores: c("supermarkets to plan around", "supermercados para planificar"),
+
+  // supermarkets
+  storesEyebrow: c("Your supermarket", "Tu supermercado"),
+  storesTitle: c("prices from the shop you actually use", "precios del súper en el que compras"),
+  storesLead: c(
+    "Pick the chain you shop at and every plan is costed against it, with the grocery list grouped the way that store is laid out.",
+    "Elige la cadena en la que compras y cada plan se calcula con sus precios, con la lista agrupada como está montada la tienda.",
+  ),
+  storesDisclaimer: c(
+    "Supermarket names and logos are trademarks of their respective owners. Pick is not affiliated with, sponsored by or endorsed by any of them.",
+    "Los nombres y logotipos de los supermercados son marcas de sus respectivos titulares. Pick no está afiliado, patrocinado ni respaldado por ninguno.",
+  ),
+  storesSeeAll: c("See the plan for your store", "Ver el plan de tu súper"),
 
   // features
   featEyebrow: c("Why Pick", "Por qué Pick"),
@@ -153,16 +226,14 @@ export const T = {
     "Cada ingrediente se escala a tu hogar y se agrupa por pasillo. Ve marcando y sigue instrucciones paso a paso con los macros de cada plato.",
   ),
 
-  // supermarkets
-  storesTitle: c("Plans around your store", "Se adapta a tu supermercado"),
-
-  // dishes
+  // dishes / catalog
   dishesEyebrow: c("The menu", "El menú"),
-  dishesTitle: c("229 dinners, and counting", "229 cenas, y subiendo"),
+  dishesTitle: c("349 dinners, and counting", "349 cenas, y subiendo"),
   dishesLead: c(
     "From 15-minute fakeaways to Sunday traybakes — every recipe has real ingredients, macros, prices and step-by-step instructions.",
     "Desde fakeaways de 15 minutos hasta bandejas de domingo — cada receta tiene ingredientes reales, macros, precios e instrucciones paso a paso.",
   ),
+  dishesCta: c("Browse all 349 recipes", "Ver las 349 recetas"),
 
   // pricing
   priceEyebrow: c("Pricing", "Precios"),
@@ -173,17 +244,16 @@ export const T = {
   ),
   priceYearlyName: c("Yearly", "Anual"),
   priceYearlyFlag: c("BEST VALUE · 3-DAY TRIAL", "MEJOR PRECIO · 3 DÍAS GRATIS"),
-  priceYearlySub: c("$49.99 billed once a year after the free trial", "se cobran $49.99 una vez al año tras la prueba"),
   priceWeeklyName: c("Weekly", "Semanal"),
   priceWeeklySub: c("billed weekly, cancel anytime", "cobro semanal, cancela cuando quieras"),
   perWeek: c("/ week", "/ semana"),
   perYear: c("/ year", "/ año"),
-  priceYearlyBadge: c("just $0.96 / week", "sale a $0.96 / semana"),
   priceFeat1: c("Unlimited weekly meal plans", "Planes semanales ilimitados"),
-  priceFeat2: c("All 229 recipes & grocery lists", "Las 229 recetas y listas de la compra"),
+  priceFeat2: c("All 349 recipes & grocery lists", "Las 349 recetas y listas de la compra"),
   priceFeat3: c("Unlimited swaps & favourites", "Cambios y favoritos ilimitados"),
   priceFeat4: c("No ads, no account needed", "Sin anuncios, sin cuenta"),
   priceNote: c("No payment due now.", "No pagas nada ahora."),
+  priceStorefront: c("Prices shown for the US App Store.", "Precios de la App Store de España."),
 
   // faq
   faqEyebrow: c("Good to know", "Buena info"),
@@ -203,6 +273,7 @@ export const T = {
     "Planifica cenas según tu presupuesto, tus antojos y lo que hay en tu cocina.",
   ),
   footProduct: c("Product", "Producto"),
+  footBrowse: c("Browse", "Explorar"),
   footLegal: c("Legal", "Legal"),
   footMore: c("More", "Más"),
   footPrivacy: c("Privacy Policy", "Privacidad"),
@@ -210,9 +281,75 @@ export const T = {
   footLegalNotice: c("Legal Notice", "Aviso legal"),
   footSupport: c("Support", "Soporte"),
   footMadeFor: c("Made for iPhone · by Trempido", "Hecho para iPhone · por Trempido"),
+
+  // ── recipe index / collections ──
+  recipesTitle: c("All 349 dinner recipes", "Las 349 recetas de cena"),
+  recipesLead: c(
+    "The full Pick catalog: every dinner with its cook time, estimated cost per serving, macros, ingredient list and steps. Everything here is in the app, offline, and gets planned into your week automatically.",
+    "El catálogo completo de Pick: cada cena con su tiempo, coste estimado por ración, macros, ingredientes y pasos. Todo esto está en la app, sin conexión, y entra solo en tu planning semanal.",
+  ),
+  browseBy: c("Browse by", "Explorar por"),
+  groupVibe: c("Mood", "Mood"),
+  groupDiet: c("Diet", "Dieta"),
+  groupProtein: c("Main protein", "Proteína principal"),
+  groupTime: c("Time", "Tiempo"),
+  groupFree: c("Free from", "Sin"),
+  groupBudget: c("Budget & calories", "Presupuesto y calorías"),
+  recipesAll: c("Every recipe, A–Z", "Todas las recetas, A–Z"),
+  recipeCountLabel: c("recipes", "recetas"),
+
+  // ── recipe page ──
+  ingredients: c("Ingredients", "Ingredientes"),
+  method: c("Method", "Elaboración"),
+  perServing: c("per serving", "por ración"),
+  nutrition: c("Nutrition", "Nutrición"),
+  kcal: c("Calories", "Calorías"),
+  protein: c("Protein", "Proteína"),
+  carbs: c("Carbs", "Carbohidratos"),
+  fats: c("Fat", "Grasas"),
+  cookTime: c("Cook time", "Tiempo"),
+  estCost: c("Est. cost", "Coste est."),
+  costNote: c(
+    "Estimated cost per serving at a mid-range supermarket. Real prices vary by store and week.",
+    "Coste estimado por ración en un súper de precio medio. El precio real varía según tienda y semana.",
+  ),
+  youNeed: c("You'll need", "Necesitas"),
+  suitableFor: c("Suitable for", "Apto para"),
+  containsAllergens: c("Contains", "Contiene"),
+  allergenNote: c(
+    "Allergen tags come from the recipe, not from the products you buy — always check the label.",
+    "Los alérgenos salen de la receta, no de los productos que compras — revisa siempre la etiqueta.",
+  ),
+  inTheApp: c("This recipe in the app", "Esta receta en la app"),
+  inTheAppBody: c(
+    "Pick scales these ingredients to how many you cook for, adds them to a grocery list sorted by aisle, and drops the dish into a week that stays under your budget.",
+    "Pick escala estos ingredientes a para cuántos cocinas, los añade a una lista ordenada por pasillo y mete el plato en una semana que no se pasa de tu presupuesto.",
+  ),
+  moreLike: c("More like this", "Más como esta"),
+  inTheAppWeek: c("This week in the app", "Esta semana en la app"),
+  inTheAppWeekBody: c(
+    "Pick builds a week like this in one tap, scales every ingredient to how many you cook for, and keeps the total under the budget you set — then hands you the list, sorted by aisle.",
+    "Pick monta una semana como esta en un toque, escala cada ingrediente a para cuántos cocinas y mantiene el total por debajo del presupuesto que fijes — y te da la lista ordenada por pasillo.",
+  ),
+  alsoIn: c("Also in", "También en"),
+
+  // ── store page ──
+  storeTitleTpl: c("Weekly meal plan for {store}", "Menú semanal para {store}"),
+  storeLeadTpl: c(
+    "Pick costs every dinner against {store} prices and sorts your grocery list the way the store is laid out. Here's what a cheap week looks like.",
+    "Pick calcula cada cena con precios de {store} y ordena la lista de la compra como está montada la tienda. Así es una semana barata.",
+  ),
+  storeWeek: c("A sample week", "Una semana de ejemplo"),
+  storeList: c("The grocery list it produces", "La lista de la compra que sale"),
+  storeTotal: c("Estimated total", "Total estimado"),
+  storeAll: c("Every supermarket Pick plans around", "Todos los supermercados con los que Pick planifica"),
+  storeOther: c("Shop somewhere else?", "¿Compras en otro sitio?"),
 } as const
 
 export type CopyKey = keyof typeof T
+
+/** `t("heroCta")` bound to one language — used by every Pick page. */
+export const tr = (lang: Lang) => (key: CopyKey) => T[key][lang]
 
 export const FAQ: { q: Copy; a: Copy }[] = [
   {
@@ -223,6 +360,13 @@ export const FAQ: { q: Copy; a: Copy }[] = [
     ),
   },
   {
+    q: c("How many recipes are in Pick?", "¿Cuántas recetas tiene Pick?"),
+    a: c(
+      "349 dinners, all bundled inside the app with their photo, ingredients, macros, estimated cost and step-by-step method. No internet needed to cook from them.",
+      "349 cenas, todas dentro de la app con su foto, ingredientes, macros, coste estimado y elaboración paso a paso. No hace falta internet para cocinarlas.",
+    ),
+  },
+  {
     q: c("Are the supermarket prices exact?", "¿Los precios del súper son exactos?"),
     a: c(
       "They're estimates to help you plan and stay on budget. Real in-store prices vary by location and over time, so treat the total as a guide, not a receipt.",
@@ -230,7 +374,7 @@ export const FAQ: { q: Copy; a: Copy }[] = [
     ),
   },
   {
-    q: c("Is Pick affiliated with Walmart, Kroger, etc.?", "¿Pick está afiliado a Walmart, Kroger, etc.?"),
+    q: c("Is Pick affiliated with Walmart, Mercadona, etc.?", "¿Pick está afiliado a Walmart, Mercadona, etc.?"),
     a: c(
       "No. Supermarket names and logos are trademarks of their respective owners. Pick has no commercial or sponsorship relationship with any of them — we only use the store you pick to estimate prices and organise your list.",
       "No. Los nombres y logotipos de los supermercados son marcas de sus respectivos titulares. Pick no tiene relación comercial ni de patrocinio con ninguno — solo usamos tu tienda para estimar precios y organizar la lista.",
@@ -246,8 +390,8 @@ export const FAQ: { q: Copy; a: Copy }[] = [
   {
     q: c("How does the free trial work?", "¿Cómo funciona la prueba gratis?"),
     a: c(
-      "You get 3 days free with the yearly plan. If you don't cancel, it becomes an auto-renewing subscription ($49.99/year, or $9.99/week on the weekly plan) managed by Apple. Cancel anytime from your Apple account settings.",
-      "Tienes 3 días gratis con el plan anual. Si no cancelas, pasa a una suscripción de renovación automática ($49.99/año, o $9.99/semana en el plan semanal) gestionada por Apple. Cancela cuando quieras desde los ajustes de tu cuenta de Apple.",
+      "You get 3 days free with the yearly plan. If you don't cancel, it becomes an auto-renewing subscription ($49.99/year, or $9.99/week on the weekly plan) managed by Apple. Pick also sends you a reminder on your iPhone about 24 hours before it converts. Cancel anytime from your Apple account settings.",
+      "Tienes 3 días gratis con el plan anual. Si no cancelas, pasa a una suscripción de renovación automática (39,99 €/año, o 9,99 €/semana en el plan semanal) gestionada por Apple. Pick además te avisa en el iPhone unas 24 horas antes de que se cobre. Cancela cuando quieras desde los ajustes de tu cuenta de Apple.",
     ),
   },
   {

@@ -21,11 +21,14 @@ Evidence base: simulated exposure matches in-vivo exposure for public-speaking f
 
 ## Pick — weekly meal planner, on your budget
 
-Pick is an iPhone app (iOS 17+) that plans a week of dinners around a weekly budget, dietary preferences and what's in the user's kitchen, then produces a grocery list sorted by aisle. The user answers a short quiz once (supermarket, household size, cooking days, weekly budget, food "vibes" like speedy/low-cal/family/fakeaway, diets, allergens, liked proteins, appliances) and Pick assembles a varied week — never the same protein two days running — under the budget, with the estimated cost at the chosen store (Walmart, Aldi, Kroger, Target, Safeway, Publix, Trader Joe's, Costco or Whole Foods). Any night can be swapped for a fresh idea.
+Pick is an iPhone app (iOS 17+) that plans a week of dinners around a weekly budget, dietary preferences and what's in the user's kitchen, then produces a grocery list sorted by aisle. The user answers a short quiz once (supermarket, household size, cooking days, weekly budget, food "vibes" like speedy/low-cal/family/fakeaway, diets, allergens, liked proteins, appliances) and Pick assembles a varied week — never the same protein two days running — under the budget, with the estimated cost at the chosen store (Walmart, Aldi, Kroger, Target, Safeway, Publix, Trader Joe's, Costco or Whole Foods in the US; Mercadona, Carrefour, Lidl, Aldi, Dia, Eroski, Alcampo, El Corte Inglés or Consum in Spain). Any night can be swapped for a fresh idea.
 
-Content: 229 dinner recipes with real ingredients, step-by-step instructions, macros, estimated prices, cook times and photos. No account and no servers: plans and preferences live on the device. Subscription-based: $49.99/year with a 3-day free trial, or $9.99/week; managed by Apple.
+Content: 349 dinner recipes in English and Spanish, with real ingredients, step-by-step instructions, macros, estimated prices, cook times and photos. No account and no servers: plans and preferences live on the device. Subscription-based: $49.99/year with a 3-day free trial (39,99 €/year in Spain), or $9.99/week (9,99 €/week in Spain); managed by Apple.
 
 - [Pick overview](https://www.trempido.com/pick): what Pick is and how it plans the week
+- [All 349 recipes](https://www.trempido.com/pick/recipes): the full catalog with time, cost and macros
+- [Pick en español](https://www.trempido.com/pick/es): the Spanish site, prices in euros
+- [Pick llms.txt](https://www.trempido.com/pick/llms.txt): the detailed machine-readable file for Pick
 - [Support](https://www.trempido.com/pick/support): help with subscriptions, restores and refunds
 - [Privacy policy](https://www.trempido.com/pick/privacy)
 - [Terms of use](https://www.trempido.com/pick/terms)

@@ -14,7 +14,7 @@ const DISHES = ["chicken-ramen-bowl", "beef-tacos", "greek-chicken-salad", "chic
 export default async function OgImage() {
   const [logo, ...dishes] = await Promise.all([
     readFile(join(process.cwd(), "public/images/pick/logo.png")),
-    ...DISHES.map((id) => readFile(join(process.cwd(), `public/images/pick/dishes/${id}.jpg`))),
+    ...DISHES.map((id) => readFile(join(process.cwd(), `public/images/pick/og/${id}.jpg`))),
   ])
   const logoSrc = `data:image/png;base64,${logo.toString("base64")}`
   const dishSrcs = dishes.map((d) => `data:image/jpeg;base64,${d.toString("base64")}`)
@@ -74,7 +74,7 @@ export default async function OgImage() {
             A week of dinners on your budget, with a grocery list sorted by aisle. For iPhone.
           </div>
           <div style={{ display: "flex", gap: 12, marginTop: 34, alignItems: "center" }}>
-            {["229 recipes", "3-day free trial", "No account"].map((t) => (
+            {["349 recipes", "3-day free trial", "No account"].map((t) => (
               <div
                 key={t}
                 style={{

@@ -1,15 +1,22 @@
-"use client"
-
 import Link from "next/link"
-import { useLanguage } from "@/lib/language-context"
-import { PICK } from "@/lib/pick-content"
-import { usePickT, breadcrumbLd, JsonLd } from "./bits"
+import {
+  PICK,
+  T,
+  tr,
+  paths,
+  storesFor,
+  storeLogo,
+  type Lang,
+} from "@/lib/pick-content"
+import { COLLECTIONS } from "@/lib/pick-catalog"
+import { IconApple, IconArrow } from "./icons"
+import { breadcrumbLd, JsonLd } from "./jsonld"
 
-/** The real app logo (chef hat on green, from the iOS asset catalog). */
-export function PickMark({ size = 32 }: { size?: number }) {
+/** The real app icon (chef hat on green, from the iOS asset catalog). */
+export function PickMark({ size = 30 }: { size?: number }) {
   return (
     <img
-      src="/images/pick/logo.png"
+      src="/images/pick/logo.webp"
       alt=""
       width={size}
       height={size}
@@ -19,85 +26,125 @@ export function PickMark({ size = 32 }: { size?: number }) {
   )
 }
 
-export function PickNav({ current }: { current?: string }) {
-  const t = usePickT()
-  const { lang, setLang } = useLanguage()
+export function AppStoreButton({
+  lang,
+  className = "p-btn p-btn--primary",
+  label,
+}: {
+  lang: Lang
+  className?: string
+  label?: string
+}) {
+  return (
+    <a className={className} href={PICK.appStoreUrl} target="_blank" rel="noopener">
+      <IconApple size={17} />
+      {label ?? T.getApp[lang]}
+    </a>
+  )
+}
+
+type NavProps = {
+  lang: Lang
+  /** Same page in the other language; falls back to that language's home. */
+  alt?: string
+}
+
+export function PickNav({ lang, alt }: NavProps) {
+  const t = tr(lang)
+  const other: Lang = lang === "es" ? "en" : "es"
+  const home = paths.home(lang)
+  const links = [
+    { href: `${home}#how`, label: t("navHow") },
+    { href: paths.recipes(lang), label: t("navRecipes") },
+    { href: `${home}#stores`, label: t("navStores") },
+    { href: `${home}#pricing`, label: t("navPricing") },
+    { href: `${home}#faq`, label: t("navFaq") },
+  ]
+
   return (
     <nav className="p-nav">
       <div className="p-wrap p-nav__inner">
-        <Link href="/pick" className="p-nav__logo">
-          <PickMark size={30} />
+        <Link href={home} className="p-nav__logo">
+          <PickMark />
           <span>pick</span>
         </Link>
+
         <div className="p-nav__links">
-          <Link href="/pick#how" aria-current={current === "how" ? "page" : undefined}>{t("navHow")}</Link>
-          <Link href="/pick#features" aria-current={current === "features" ? "page" : undefined}>{t("navFeatures")}</Link>
-          <Link href="/pick#pricing" aria-current={current === "pricing" ? "page" : undefined}>{t("navPricing")}</Link>
-          <Link href="/pick#faq" aria-current={current === "faq" ? "page" : undefined}>{t("navFaq")}</Link>
+          {links.map((l) => (
+            <Link key={l.href} href={l.href}>{l.label}</Link>
+          ))}
         </div>
+
         <div className="p-nav__right">
-          <button
-            className="p-lang"
-            onClick={() => setLang(lang === "es" ? "en" : "es")}
-            aria-label="Toggle language"
-          >
-            {lang === "es" ? "EN" : "ES"}
-          </button>
-          <a className="p-btn p-btn--primary" href={PICK.appStoreUrl} target="_blank" rel="noopener">
-            {t("getApp")}
-          </a>
+          <Link className="p-lang" href={alt ?? paths.home(other)} hrefLang={other} lang={other}>
+            {other.toUpperCase()}
+          </Link>
+          <AppStoreButton lang={lang} />
+          {/* Menu for narrow screens — <details> keeps it working without JS. */}
+          <details className="p-mobmenu">
+            <summary aria-label={t("menu")}>
+              <span /><span /><span />
+            </summary>
+            <div className="p-mobmenu__panel">
+              {links.map((l) => (
+                <Link key={l.href} href={l.href}>{l.label}</Link>
+              ))}
+            </div>
+          </details>
         </div>
       </div>
     </nav>
   )
 }
 
-export function PickFooter() {
-  const t = usePickT()
+export function PickFooter({ lang }: { lang: Lang }) {
+  const t = tr(lang)
+  const home = paths.home(lang)
+  const featured = COLLECTIONS.filter((c) =>
+    ["under30", "cheap", "chicken", "vegan"].includes(c.key),
+  )
   return (
     <footer className="p-footer">
       <div className="p-wrap">
         <div className="p-footer__cols">
           <div>
-            <Link href="/pick" className="p-footer__logo">
-              <PickMark size={30} />
+            <Link href={home} className="p-footer__logo">
+              <PickMark />
               <span>pick</span>
             </Link>
-            <p style={{ marginTop: 14, maxWidth: "32ch", fontSize: "0.95rem" }}>
-              {t("footTagline")}
-            </p>
-            <a
-              className="p-btn p-btn--primary"
-              style={{ marginTop: 20, padding: "12px 24px", fontSize: "0.9rem" }}
-              href={PICK.appStoreUrl}
-              target="_blank"
-              rel="noopener"
-            >
-              {t("getApp")}
-            </a>
+            <p style={{ marginTop: 14, maxWidth: "32ch", fontSize: "0.95rem" }}>{t("footTagline")}</p>
+            <AppStoreButton
+              lang={lang}
+              className="p-btn p-btn--primary p-btn--sm"
+            />
           </div>
           <div>
             <h4>{t("footProduct")}</h4>
             <ul>
-              <li><Link href="/pick#how">{t("navHow")}</Link></li>
-              <li><Link href="/pick#features">{t("navFeatures")}</Link></li>
-              <li><Link href="/pick#pricing">{t("navPricing")}</Link></li>
-              <li><Link href="/pick#faq">{t("navFaq")}</Link></li>
+              <li><Link href={`${home}#how`}>{t("navHow")}</Link></li>
+              <li><Link href={`${home}#features`}>{t("navFeatures")}</Link></li>
+              <li><Link href={`${home}#pricing`}>{t("navPricing")}</Link></li>
+              <li><Link href={`${home}#faq`}>{t("navFaq")}</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4>{t("footBrowse")}</h4>
+            <ul>
+              <li><Link href={paths.recipes(lang)}>{t("navRecipes")}</Link></li>
+              {featured.map((c) => (
+                <li key={c.key}>
+                  <Link href={paths.collection(lang, c.slug[lang])}>{c.title[lang]}</Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
             <h4>{t("footLegal")}</h4>
             <ul>
-              <li><Link href="/pick/privacy">{t("footPrivacy")}</Link></li>
-              <li><Link href="/pick/terms">{t("footTerms")}</Link></li>
-              <li><Link href="/pick/legal">{t("footLegalNotice")}</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4>{t("footMore")}</h4>
-            <ul>
-              <li><Link href="/pick/support">{t("footSupport")}</Link></li>
-              <li><a href="https://www.trempido.com">trempido</a></li>
+              <li><Link href={paths.privacy}>{t("footPrivacy")}</Link></li>
+              <li><Link href={paths.terms}>{t("footTerms")}</Link></li>
+              <li><Link href={paths.legal}>{t("footLegalNotice")}</Link></li>
+              <li><Link href={paths.support}>{t("footSupport")}</Link></li>
             </ul>
           </div>
         </div>
@@ -110,71 +157,107 @@ export function PickFooter() {
   )
 }
 
-export function CtaBanner() {
-  const t = usePickT()
+export function CtaBanner({ lang, dishes }: { lang: Lang; dishes: string[] }) {
+  const t = tr(lang)
   return (
     <section className="p-section p-section--tight">
       <div className="p-wrap">
         <div className="p-cta">
           <div className="p-cta__photos" aria-hidden="true">
-            {["chicken-ramen-bowl", "beef-tacos", "greek-chicken-salad"].map((id) => (
-              <img key={id} src={`/images/pick/dishes/${id}.jpg`} alt="" width={72} height={72} loading="lazy" />
+            {dishes.map((id) => (
+              <img key={id} src={`/images/pick/dishes/${id}-360.webp`} alt="" width={72} height={72} loading="lazy" />
             ))}
           </div>
           <h2 className="p-h2">{t("ctaTitle")}</h2>
           <p className="p-lead" style={{ margin: "16px auto 30px", color: "rgba(255,255,255,0.88)" }}>
             {t("ctaBody")}
           </p>
-          <a className="p-btn p-btn--dark" href={PICK.appStoreUrl} target="_blank" rel="noopener">
-            {t("ctaBtn")}
-          </a>
+          <AppStoreButton lang={lang} className="p-btn p-btn--dark" label={t("ctaBtn")} />
         </div>
       </div>
     </section>
   )
 }
 
-/** Header for the legal subpages (server-rendered, English). */
-export function LegalHeader({
-  crumb,
+/**
+ * The supermarket wall: real brand marks from the app, each linking to its own
+ * plan page. The trademark disclaimer sits right under it on purpose.
+ */
+export function StoreWall({ lang, current }: { lang: Lang; current?: string }) {
+  const t = tr(lang)
+  return (
+    <section className="p-section" id="stores" style={{ background: "var(--p-cream-deep)" }}>
+      <div className="p-wrap">
+        <div className="p-shead">
+          <span className="p-eyebrow">{t("storesEyebrow")}</span>
+          <h2 className="p-h2">{t("storesTitle")}</h2>
+          <p className="p-lead">{t("storesLead")}</p>
+        </div>
+        <ul className="p-stores">
+          {storesFor(lang).map((s) => (
+            <li key={s.slug}>
+              <Link
+                href={paths.store(lang, s.slug)}
+                className={`p-store ${current === s.slug ? "is-current" : ""}`}
+              >
+                <img src={storeLogo(s)} alt="" width={44} height={44} loading="lazy" aria-hidden="true" />
+                <span>{s.name}</span>
+                <IconArrow size={16} />
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <p className="p-fineprint">{t("storesDisclaimer")}</p>
+      </div>
+    </section>
+  )
+}
+
+/** Header for the inner pages (recipes, collections, stores, legal). */
+export function PageHead({
+  crumbs,
   eyebrow,
   title,
+  lead,
+  lang,
 }: {
-  crumb: string
-  eyebrow: string
+  crumbs: { name: string; path: string }[]
+  eyebrow?: string
   title: string
+  lead?: string
+  lang: Lang
 }) {
   return (
     <header className="p-pagehead">
-      <JsonLd data={breadcrumbLd([{ name: "Pick", path: "/pick" }, { name: crumb, path: "" }])} />
+      <JsonLd data={breadcrumbLd(crumbs)} />
       <div className="p-wrap">
         <nav className="p-crumb" aria-label="Breadcrumb">
-          <Link href="/pick">Pick</Link>
-          <span aria-hidden="true">/</span>
-          <span>{crumb}</span>
+          {crumbs.map((c, i) => (
+            <span key={c.name + i} style={{ display: "inline-flex", gap: 8 }}>
+              {i > 0 && <span aria-hidden="true">/</span>}
+              {c.path ? <Link href={c.path}>{c.name}</Link> : <span>{c.name}</span>}
+            </span>
+          ))}
         </nav>
-        <span className="p-eyebrow">{eyebrow}</span>
-        <h1 className="p-display" style={{ marginTop: 14, fontSize: "clamp(2.4rem, 5.6vw, 4rem)" }}>
-          {title}
-        </h1>
+        {eyebrow && <span className="p-eyebrow">{eyebrow}</span>}
+        <h1 className="p-display p-display--page">{title}</h1>
+        {lead && <p className="p-lead" style={{ marginTop: 18 }}>{lead}</p>}
       </div>
     </header>
   )
 }
 
-/** Static nav + footer for legal pages (no language toggle, English). */
+/** Static nav + footer for the English-only legal pages. */
 export function LegalChrome({ children }: { children: React.ReactNode }) {
   return (
     <>
       <nav className="p-nav">
         <div className="p-wrap p-nav__inner">
           <Link href="/pick" className="p-nav__logo">
-            <PickMark size={30} />
+            <PickMark />
             <span>pick</span>
           </Link>
-          <a className="p-btn p-btn--primary" href={PICK.appStoreUrl} target="_blank" rel="noopener">
-            Get the app
-          </a>
+          <AppStoreButton lang="en" />
         </div>
       </nav>
       {children}
@@ -190,5 +273,17 @@ export function LegalChrome({ children }: { children: React.ReactNode }) {
         </div>
       </footer>
     </>
+  )
+}
+
+/** Kept for the legal pages that still import the old header shape. */
+export function LegalHeader({ crumb, eyebrow, title }: { crumb: string; eyebrow: string; title: string }) {
+  return (
+    <PageHead
+      lang="en"
+      crumbs={[{ name: "Pick", path: "/pick" }, { name: crumb, path: "" }]}
+      eyebrow={eyebrow}
+      title={title}
+    />
   )
 }
