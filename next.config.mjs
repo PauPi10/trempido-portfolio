@@ -87,6 +87,17 @@ const nextConfig = {
             destination: '/kari/llms.txt',
           },
           {
+            source: '/og/:variant',
+            has: [{ type: 'host', value: host }],
+            destination: '/kari/og/:variant',
+          },
+          {
+            // category pages are the only other two-segment URLs on karicoach.app
+            source: '/roleplays/:slug',
+            has: [{ type: 'host', value: host }],
+            destination: '/kari/roleplays/:slug',
+          },
+          {
             // everything else without a file extension, except assets and
             // the kari/umi trees themselves (kari is redirect-stripped above)
             source: '/:path((?!kari|umi|images|_next|api|favicon|icon|apple-icon|.*\\..*).+)',

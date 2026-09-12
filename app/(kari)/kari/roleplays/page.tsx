@@ -1,0 +1,92 @@
+import type { Metadata } from "next"
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
+import { ROLEPLAY_CATEGORIES, TOTAL_ROLEPLAYS } from "@/lib/kari-content"
+import { KariNav, KariFooter, CtaBanner, PageHeader } from "@/components/kari/chrome"
+import { JsonLd } from "@/components/kari/bits"
+import { Reveal } from "@/components/kari/reveal"
+import { SceneIcon } from "@/components/kari/scene-icon"
+
+export const metadata: Metadata = {
+  title: `${TOTAL_ROLEPLAYS}+ Conversation Roleplays to Practice Out Loud`,
+  description:
+    "Browse Kari's catalog of 160+ voice roleplays: dating and flirting, job interviews and salary talks, persuasion and negotiation, everyday conflicts, family conversations. Practice each scene out loud with an AI character who talks back.",
+  alternates: { canonical: "https://karicoach.app/roleplays" },
+}
+
+const LIST_LD = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Kari roleplay categories",
+  description: `The ${TOTAL_ROLEPLAYS}+ conversation practice scenarios in Kari, grouped in 5 categories.`,
+  numberOfItems: ROLEPLAY_CATEGORIES.length,
+  itemListElement: ROLEPLAY_CATEGORIES.map((c, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: `${c.name} (${c.count} scenes)`,
+    description: c.blurb,
+    url: `https://karicoach.app/roleplays/${c.id}`,
+  })),
+}
+
+export default function Roleplays() {
+  return (
+    <>
+      <KariNav current="/roleplays" />
+      <JsonLd data={LIST_LD} />
+      <main>
+        <PageHeader
+          crumb="Roleplays"
+          eyebrow={`${TOTAL_ROLEPLAYS}+ scenes · 5 categories`}
+          title={<>Every conversation you've been <span className="k-italic">avoiding</span></>}
+          lead="Each roleplay is a live voice scene with a mission and a character who reacts like the real person would: bored by canned lines, pushing back, giving in only to technique. Variety is deliberate — varied scenes retain more than repeating one until it feels comfortable."
+        />
+
+        {ROLEPLAY_CATEGORIES.map((cat, ci) => (
+          <section
+            className="k-section k-section--tight"
+            key={cat.id}
+            style={ci % 2 === 1 ? { background: "var(--k-paper-deep)" } : undefined}
+          >
+            <div className="k-wrap">
+              <Reveal>
+                <div className="k-cat" style={{ alignItems: "center" }}>
+                  <Image src={cat.img} alt={`${cat.name} — roleplay category art`} width={72} height={72} style={{ filter: "drop-shadow(0 10px 16px rgba(93,36,16,0.22))" }} />
+                  <h2 className="k-h2" style={{ fontSize: "clamp(1.7rem,3.4vw,2.5rem)" }}>
+                    <Link href={`/roleplays/${cat.id}`} style={{ color: "inherit", textDecoration: "none" }}>{cat.name}</Link>
+                  </h2>
+                  <span className="k-cat__count">{cat.count} scenes</span>
+                </div>
+                <p className="k-lead" style={{ marginBottom: 30 }}>{cat.blurb}</p>
+              </Reveal>
+              <div className="k-grid-2">
+                {cat.scenes.map((s, i) => (
+                  <Reveal key={s.title} delay={(i % 2) * 0.07}>
+                    <article className="k-scene" style={{ height: "100%" }}>
+                      <span className="k-scene__icon"><SceneIcon name={s.icon} size={22} /></span>
+                      <h3 className="k-scene__title">{s.title}</h3>
+                      <p className="k-scene__char">{s.character}</p>
+                      <p className="k-scene__mission">{s.mission}</p>
+                    </article>
+                  </Reveal>
+                ))}
+              </div>
+              <Reveal>
+                <Link className="k-btn k-btn--ghost" href={`/roleplays/${cat.id}`} style={{ marginTop: 22 }}>
+                  See all {cat.count} {cat.name.toLowerCase()} scenes <ArrowRight size={17} />
+                </Link>
+              </Reveal>
+            </div>
+          </section>
+        ))}
+
+        <CtaBanner
+          title="Pick tonight's scene."
+          body="Noa is at the bar, Elena has the trap questions ready and the retention guy is warming up. Five minutes, out loud."
+        />
+      </main>
+      <KariFooter />
+    </>
+  )
+}

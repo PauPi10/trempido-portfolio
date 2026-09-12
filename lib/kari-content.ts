@@ -11,7 +11,12 @@ export const KARI = {
   oneLiner:
     "Kari is an iPhone app that trains your charisma and social skills through real spoken conversation with an AI coach. You practice out loud, a character talks back, and you get a report on exactly what to improve.",
   supportEmail: "ppidelaserra2@gmail.com",
+  legalName: "TREMPIDO SL",
   languages: 31,
+  // Site launch (first index by Google) and last content review. Bump
+  // lastReviewed whenever product facts or the science page change.
+  datePublished: "2026-07-11",
+  lastReviewed: "2026-09-12",
 } as const;
 
 export type Skill = {
@@ -343,20 +348,40 @@ export const HOW_STEPS = [
 ];
 
 // Science page — distilled from FUNDAMENTOS.md (75 claims from primary studies and meta-analyses).
-export const SCIENCE = [
+export type ScienceClaim = {
+  stat: string;
+  claim: string;
+  detail: string;
+  source: string;
+  /** Self-contained 130–170 word block: the citable unit for AI search. */
+  long: string;
+  /** Full reference. `url` is a DOI only when verified; null = citation pending. */
+  ref: string;
+  url: string | null;
+};
+
+export const SCIENCE: ScienceClaim[] = [
   {
     stat: "d = −1.39 vs −1.41",
     claim: "Talking to an AI by voice matches real-life exposure.",
     detail:
       "A meta-analysis of 11 controlled studies (N=508) found simulated exposure for public-speaking fear practically identical to in-vivo exposure (d=−1.39 vs d=−1.41). Practicing out loud with a voice AI is a legitimate form of exposure.",
-    source: "Meta-analysis · 11 RCTs · N=508",
+    source: "Reeves et al. · Behavior Modification · 2022",
+    long:
+      "Reeves, Curran, Gleeson and Hanna (2022) pooled 11 controlled studies with 508 participants that treated public-speaking anxiety either with virtual-reality exposure or with in-vivo exposure. Both worked, and they worked to the same degree: the standardized effect versus control was d = −1.39 for simulated exposure and d = −1.41 for real exposure, a difference with no statistical meaning. The finding matters for Kari because it settles the obvious objection to practicing with an AI, that a simulation cannot substitute for the real thing. For the fear of speaking, it can. Kari's roleplays are spoken exposure with a character who reacts in real time, so every session counts as a legitimate exposure trial, not a rehearsal for one. Kari does not claim clinical treatment; it uses the mechanism the study validated, and it measures the behaviors that change because of it.",
+    ref: "Reeves, R., Curran, D., Gleeson, A., & Hanna, D. (2022). A meta-analysis of the efficacy of virtual reality and in vivo exposure therapy as psychological interventions for public speaking anxiety. Behavior Modification.",
+    url: "https://doi.org/10.1177/0145445521991102",
   },
   {
     stat: "d = 0.87",
     claim: "Technique plus practice works — exposure alone doesn't build skill.",
     detail:
       "In a randomized trial (N=106, social anxiety), exposure plus skills training beat exposure alone on judge-rated skill (d=0.87), avoidance (d=0.61) and depression (d=0.79). That's why Kari pairs lessons with roleplays: neither leg is optional.",
-    source: "RCT · social anxiety · N=106",
+    source: "Beidel et al. · Journal of Anxiety Disorders · 2014",
+    long:
+      "Beidel and colleagues (2014) randomized 106 adults with social anxiety disorder to exposure therapy alone, to exposure combined with social skills training (Social Effectiveness Therapy), or to a wait list. Exposure alone reduced anxiety. Only the combination improved what independent judges could actually see: rated social skill improved with d = 0.87 over exposure alone, avoidance with d = 0.61 and depression with d = 0.79. In plain terms, facing the situation makes you less afraid; it does not by itself make you better at the conversation. This is the reason Kari never ships roleplays without lessons. A lesson teaches one concrete technique and makes you say it out loud; the roleplay then puts that technique under pressure with a character who reacts. Drop either leg and the trial says you lose the skill gain.",
+    ref: "Beidel, D. C., Alfano, C. A., Kofler, M. J., Rao, P. A., Scharfstein, L., & Wong Sarver, N. (2014). The impact of social skills training for social anxiety disorder: A randomized controlled trial. Journal of Anxiety Disorders, 28(8), 908–918.",
+    url: "https://doi.org/10.1016/j.janxdis.2014.09.016",
   },
   {
     stat: "40 → 71",
@@ -364,6 +389,10 @@ export const SCIENCE = [
     detail:
       "The “Pascal” system (N=72) produced a large improvement in prosodic charisma after 4 hours of feedback-driven practice (score 40 → 71, p<0.001). Acoustic signal alone predicts 66–75% of perceived charisma.",
     source: "Pascal system · N=72 · p<0.001",
+    long:
+      "In the study behind the “Pascal” training system, 72 participants practiced speaking with automated feedback on prosody: pitch variation, pace, emphasis and pauses. After four hours of feedback-driven practice their prosodic charisma score rose from 40 to 71 on the system's scale (p < 0.001), a large effect for a very short intervention. The same line of research shows that acoustic features alone predict 66–75% of how charismatic a speaker is judged to be, before a listener processes a single word. Kari is built on this. It listens through a live voice API rather than reading a transcript, measures energy variation, sentence endings and pauses, and reports them as the Tone trait. The practical claim is narrow and well supported: the vocal part of charisma responds to feedback within hours, and it is the part most apps never hear.",
+    ref: "Prosodic charisma training study (“Pascal” system, N = 72, 4 hours of feedback-driven practice).",
+    url: null,
   },
   {
     stat: "g = 0.33",
@@ -371,20 +400,32 @@ export const SCIENCE = [
     detail:
       "A meta-analysis of 27 randomized trials of social skills training found reliable effects (g=0.33) even in hard clinical populations, maintained at follow-up. That loop — see it, try it, get corrected — is exactly Kari's lesson engine.",
     source: "Meta-analysis · 27 RCTs",
+    long:
+      "Social skills training has a simple core loop: watch the behavior modeled, try it yourself, get corrected, try again. A meta-analysis of 27 randomized controlled trials found that this loop produces reliable gains (Hedges' g = 0.33) even in clinical populations where change is hardest, and that the gains were still there at follow-up. The effect is moderate, which is what you would expect from an intervention that trains behavior rather than mood. Kari's lesson engine is that loop compressed into a few minutes: Kari models the technique, you attempt it out loud, she corrects one thing while quoting your literal words, and you attempt it again with the difficulty raised. The design choice the evidence forces is one correction per attempt. Feedback that lists everything you did wrong is not what the trials tested, so Kari does not do it.",
+    ref: "Meta-analysis of social skills training, 27 randomized controlled trials (g = 0.33, effects maintained at follow-up).",
+    url: null,
   },
   {
     stat: "2011",
     claim: "Charisma can be taught — and trained people are seen as more influential.",
     detail:
       "Managers trained in concrete verbal tactics (stories, metaphors, contrasts, three-part lists) were rated significantly more influential by their own teams. These are the only charisma tactics with demonstrated causal effect — and the ones Kari drills.",
-    source: "Antonakis et al. · Univ. of Lausanne · 2011",
+    source: "Antonakis et al. · Academy of Management Learning & Education · 2011",
+    long:
+      "Antonakis, Fenley and Liechti (2011) ran two experiments to test whether charisma can be taught. Managers were trained in a fixed set of verbal and nonverbal tactics: stories and anecdotes, metaphors, contrasts (“it is not X, it is Y”), three-part lists, rhetorical questions, expressions of moral conviction, and animated voice and gesture. Afterwards their own teams, who did not know about the training, rated them as significantly more charismatic and more influential than before and than untrained controls. These “charismatic leadership tactics” are the only charisma techniques with a demonstrated causal effect, and every one of them can be counted in a transcript. That is why Kari's lessons drill exactly these moves, and why the report can tell you whether you used a contrast or a three-part list rather than whether you seemed confident.",
+    ref: "Antonakis, J., Fenley, M., & Liechti, S. (2011). Can charisma be taught? Tests of two interventions. Academy of Management Learning & Education, 10(3), 374–396.",
+    url: "https://doi.org/10.5465/amle.2010.0012",
   },
   {
     stat: "Huang 2017",
     claim: "Follow-up questions predict being liked.",
     detail:
       "Asking questions that dig into what the other person just said predicts likability and even second dates (Huang et al., 2017). Kari counts your follow-up questions, long silences and energy variation as hard evidence in the report.",
-    source: "Huang et al. · JPSP · 2017",
+    source: "Huang et al. · Journal of Personality and Social Psychology · 2017",
+    long:
+      "Huang, Yeomans, Brooks, Minson and Gino (2017) studied live conversations, including speed dates, and found that people who ask more questions are liked more, and that follow-up questions, the ones that dig into what the other person just said, carry most of the effect. Speed daters who asked more follow-up questions were more likely to get a second date. Questions that switch topic do not produce the same result; they read as interrogation rather than listening. Kari treats this as a hard metric. Every session report counts your follow-up questions and callbacks, and the Listening trait is built largely from them. It also counts long silences and energy variation, because the same body of research shows these are what listeners actually use to judge you. The number is not a vibe. It is a count of behaviors you can change next time.",
+    ref: "Huang, K., Yeomans, M., Brooks, A. W., Minson, J., & Gino, F. (2017). It doesn't hurt to ask: Question-asking increases liking. Journal of Personality and Social Psychology, 113(3), 430–452.",
+    url: "https://doi.org/10.1037/pspi0000097",
   },
 ];
 
@@ -628,5 +669,25 @@ export const FAQS_SEO = [
   {
     q: "How is Kari different from chat-based AI apps?",
     a: "Three ways. You speak out loud, so Kari can coach the two thirds of charisma that live in your voice — pace, emphasis, pauses — which typing apps can't even see. The characters push back: they get bored by canned lines and only give in to technique, instead of agreeing like a generic assistant. And the feedback is measured behavior (filler words counted, silences timed, quotes cited), not encouragement.",
+  },
+  {
+    q: "Is Kari available in Spanish?",
+    a: "Yes. Kari was built in Spanish and English first, and the app's interface is available in 31 languages. The roleplay characters and the coach speak the language you train in. The Spanish version of this site is at karicoach.app/es, and the App Store listing in Spain and Latin America is “Kari - Coach de Carisma”.",
+  },
+  {
+    q: "How can I practice for a job interview out loud?",
+    a: "Rehearse the real questions with someone who reacts, then look at what you actually did. Kari's work and career scenes put you in front of Elena, an HR character who hides trap questions, and Marta, a recruiter who insists the offer is final. You answer out loud, and the report counts filler words, measures silences over four seconds and shows whether your sentences ended with confidence or trailed off. Twenty-seven interview and workplace scenes are listed on the Work and career page.",
+  },
+  {
+    q: "How do I get better at small talk?",
+    a: "Small talk is a skill with five trainable moves: opening, asking a follow-up question, sharing something of your own, a callback, and an exit. Kari's Social confidence skill has a spoken lesson for each, and research shows follow-up questions, the ones that dig into what the other person just said, are the single behavior that most predicts being liked (Huang et al., 2017). The report counts yours after every scene.",
+  },
+  {
+    q: "How long does it take to see results?",
+    a: "The vocal part responds fastest: in the Pascal study, prosodic charisma scores rose from 40 to 71 after four hours of feedback-driven practice. Kari sessions are five minutes, and most users notice filler words disappearing within a couple of weeks because they finally hear them counted. Kari does not promise outcomes; it measures behaviors, and those change with repetitions.",
+  },
+  {
+    q: "Is Kari a good alternative to CharmXP or Vocal Image?",
+    a: "It depends on what you want to train. Kari is the one built around live conversations with characters who resist and a report of counted behaviors, with dating, everyday conflict, persuasion, work and family as categories. CharmXP leans professional with gamified progression; Vocal Image centers voice drills and a daily plan. The Compare page lays the four options out side by side with facts from their App Store listings.",
   },
 ] as const;
