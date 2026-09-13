@@ -151,8 +151,8 @@ export const SCIENCE_ES = [
     stat: "40 → 71",
     claim: "El carisma vocal se entrena en horas, no en años.",
     detail: "El sistema «Pascal» (N=72) logró una mejora grande del carisma prosódico con 4 horas de práctica con feedback (40 → 71, p<0,001). Solo con la señal acústica se predice el 66-75 % del carisma percibido.",
-    source: "Sistema Pascal · N=72 · p<0,001",
-    url: null,
+    source: "Niebuhr et al. · Frontiers in Communication · 2019",
+    url: "https://doi.org/10.3389/fcomm.2019.00012",
   },
   {
     stat: "2011",

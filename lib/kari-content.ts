@@ -388,22 +388,22 @@ export const SCIENCE: ScienceClaim[] = [
     claim: "Vocal charisma is trainable in hours, not years.",
     detail:
       "The “Pascal” system (N=72) produced a large improvement in prosodic charisma after 4 hours of feedback-driven practice (score 40 → 71, p<0.001). Acoustic signal alone predicts 66–75% of perceived charisma.",
-    source: "Pascal system · N=72 · p<0.001",
+    source: "Niebuhr et al. · Frontiers in Communication · 2019",
     long:
-      "In the study behind the “Pascal” training system, 72 participants practiced speaking with automated feedback on prosody: pitch variation, pace, emphasis and pauses. After four hours of feedback-driven practice their prosodic charisma score rose from 40 to 71 on the system's scale (p < 0.001), a large effect for a very short intervention. The same line of research shows that acoustic features alone predict 66–75% of how charismatic a speaker is judged to be, before a listener processes a single word. Kari is built on this. It listens through a live voice API rather than reading a transcript, measures energy variation, sentence endings and pauses, and reports them as the Tone trait. The practical claim is narrow and well supported: the vocal part of charisma responds to feedback within hours, and it is the part most apps never hear.",
-    ref: "Prosodic charisma training study (“Pascal” system, N = 72, 4 hours of feedback-driven practice).",
-    url: null,
+      "Niebuhr, Tegtmeier and Schweisfurth (2019) put 72 participants through the PASCAL training system, where they practiced speaking with automated feedback on prosody: pitch variation, pace, emphasis and pauses. After four hours of feedback-driven practice their prosodic charisma score rose from 40 to 71 on the system's scale (p < 0.001), a large effect for a very short intervention. The same line of research shows that acoustic features alone predict 66–75% of how charismatic a speaker is judged to be, before a listener processes a single word. Kari is built on this. It listens through a live voice API rather than reading a transcript, measures energy variation, sentence endings and pauses, and reports them as the Tone trait. The practical claim is narrow and well supported: the vocal part of charisma responds to feedback within hours, and it is the part most apps never hear.",
+    ref: "Niebuhr, O., Tegtmeier, S., & Schweisfurth, T. (2019). Female speakers benefit more than male speakers from prosodic charisma training: A before-after analysis of 12-weeks and 4-h courses. Frontiers in Communication, 4, 12.",
+    url: "https://doi.org/10.3389/fcomm.2019.00012",
   },
   {
     stat: "g = 0.33",
     claim: "The model → rehearse → feedback loop is the proven core.",
     detail:
       "A meta-analysis of 27 randomized trials of social skills training found reliable effects (g=0.33) even in hard clinical populations, maintained at follow-up. That loop — see it, try it, get corrected — is exactly Kari's lesson engine.",
-    source: "Meta-analysis · 27 RCTs",
+    source: "Turner et al. · Schizophrenia Bulletin · 2018",
     long:
-      "Social skills training has a simple core loop: watch the behavior modeled, try it yourself, get corrected, try again. A meta-analysis of 27 randomized controlled trials found that this loop produces reliable gains (Hedges' g = 0.33) even in clinical populations where change is hardest, and that the gains were still there at follow-up. The effect is moderate, which is what you would expect from an intervention that trains behavior rather than mood. Kari's lesson engine is that loop compressed into a few minutes: Kari models the technique, you attempt it out loud, she corrects one thing while quoting your literal words, and you attempt it again with the difficulty raised. The design choice the evidence forces is one correction per attempt. Feedback that lists everything you did wrong is not what the trials tested, so Kari does not do it.",
-    ref: "Meta-analysis of social skills training, 27 randomized controlled trials (g = 0.33, effects maintained at follow-up).",
-    url: null,
+      "Social skills training has a simple core loop: watch the behavior modeled, try it yourself, get corrected, try again. Turner and colleagues (2018) pooled 27 randomized controlled trials (N = 1,437) and found that this loop produces reliable gains (Hedges' g ≈ 0.3) even in psychosis, the clinical population where change is hardest, and that the gains were still there at follow-up. The effect is moderate, which is what you would expect from an intervention that trains behavior rather than mood. Kari's lesson engine is that loop compressed into a few minutes: Kari models the technique, you attempt it out loud, she corrects one thing while quoting your literal words, and you attempt it again with the difficulty raised. The design choice the evidence forces is one correction per attempt. Feedback that lists everything you did wrong is not what the trials tested, so Kari does not do it.",
+    ref: "Turner, D. T., McGlanaghy, E., Cuijpers, P., van der Gaag, M., Karyotaki, E., & MacBeth, A. (2018). A meta-analysis of social skills training and related interventions for psychosis. Schizophrenia Bulletin, 44(3), 475–491.",
+    url: "https://doi.org/10.1093/schbul/sbx146",
   },
   {
     stat: "2011",
