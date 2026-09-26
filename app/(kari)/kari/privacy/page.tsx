@@ -40,7 +40,7 @@ export default function PrivacyPage() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-balance">Privacy Policy</h1>
           <p className="text-lg text-muted-foreground mb-2">Kari</p>
-          <p className="text-sm text-muted-foreground">Last Updated: July 10, 2026</p>
+          <p className="text-sm text-muted-foreground">Last Updated: September 26, 2026</p>
         </div>
       </div>
 
@@ -190,7 +190,12 @@ export default function PrivacyPage() {
               </div>
               <div className="border-l-4 border-amber-500 pl-4">
                 <h3 className="text-lg font-semibold mb-1">Apple</h3>
-                <p className="text-sm text-foreground/90">Handles all payment processing for subscriptions and minute packs. We do not have access to your payment information.</p>
+                <p className="text-sm text-foreground/90 mb-1">Handles all payment processing for subscriptions and minute packs. We do not have access to your payment information.</p>
+                <p className="text-sm text-foreground/90"><strong>Refund requests:</strong> if you request a refund from Apple, we may share information with Apple about your use of the App (for example, whether the purchased content was delivered) to help Apple resolve your request.</p>
+              </div>
+              <div className="border-l-4 border-amber-500 pl-4">
+                <h3 className="text-lg font-semibold mb-1">RevenueCat</h3>
+                <p className="text-sm text-foreground/90">Manages subscription and purchase status on our behalf, linked to your anonymous identifier, and responds to Apple refund requests as described above. It does not receive your voice, name or payment details.</p>
               </div>
             </div>
             <p className="text-foreground/90 mt-4 font-medium">We do not sell your personal data to anyone.</p>
