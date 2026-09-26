@@ -21,7 +21,7 @@ export default function PrivacyPage() {
       <LegalHeader crumb="Privacy" eyebrow="Legal" title="privacy policy" />
       <section className="p-section p-section--tight">
         <div className="p-wrap p-prose">
-          <p className="p-prose__meta">Last updated: July 2026.</p>
+          <p className="p-prose__meta">Last updated: September 2026.</p>
 
           <div className="p-legal-card">
             <strong>The short version.</strong> Pick has no account and no servers of our own. Your meal
@@ -74,7 +74,9 @@ export default function PrivacyPage() {
             never receive or store your payment details. To validate purchases and manage subscription status
             we use <strong>RevenueCat</strong>, which receives your App Store purchase receipt and a randomly
             generated app user identifier — never your name, email or payment details. Apple&apos;s handling of
-            your data is governed by Apple&apos;s privacy policy, and RevenueCat&apos;s by theirs.
+            your data is governed by Apple&apos;s privacy policy, and RevenueCat&apos;s by theirs. If you request a
+            refund from Apple, we may share information with Apple about your use of the app (for example,
+            whether the purchased content was delivered) to help Apple resolve your request.
           </p>
 
           <h2>6. Diagnostics</h2>

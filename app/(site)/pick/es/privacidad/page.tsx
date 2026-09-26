@@ -22,7 +22,7 @@ export default function PrivacidadPage() {
       <LegalHeader lang="es" crumb="Privacidad" eyebrow="Legal" title="política de privacidad" />
       <section className="p-section p-section--tight">
         <div className="p-wrap p-prose">
-          <p className="p-prose__meta">Última actualización: julio de 2026.</p>
+          <p className="p-prose__meta">Última actualización: septiembre de 2026.</p>
 
           <div className="p-legal-card">
             <strong>La versión corta.</strong> Pick no tiene cuenta ni servidores propios. Tu plan de comidas,
@@ -78,7 +78,9 @@ export default function PrivacidadPage() {
             la suscripción usamos <strong>RevenueCat</strong>, que recibe el recibo de compra del App Store y un
             identificador de usuario generado aleatoriamente, nunca tu nombre, tu correo ni tus datos de pago.
             El tratamiento que hace Apple de tus datos se rige por su política de privacidad, y el de RevenueCat
-            por la suya.
+            por la suya. Si solicitas un reembolso a Apple, podemos compartir con Apple información sobre el
+            uso que has hecho de la app (por ejemplo, si el contenido comprado se entregó) para ayudarle a
+            resolver la solicitud.
           </p>
 
           <h2>6. Diagnósticos</h2>
