@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next"
 import { COLLECTIONS, recipes } from "@/lib/pick-catalog"
 import { isReleased } from "@/lib/pick-release"
 import { abs, paths, storesFor, type Lang } from "@/lib/pick-content"
+import { VLANGS, VDOCS, vabs, valternates, vpath, type VPage } from "@/lib/volante-content"
 
 const BASE = "https://www.trempido.com"
 const PICK_UPDATED = new Date("2026-07-25")
@@ -68,6 +69,21 @@ function pickRoutes(): Row[] {
   return rows
 }
 
+/** Volante: landing + 4 legal pages × 5 languages, each with full hreflang. */
+const VOLANTE_UPDATED = new Date("2026-11-14")
+function volanteRoutes(): MetadataRoute.Sitemap {
+  const pages: VPage[] = ["home", ...VDOCS]
+  return pages.flatMap((page) =>
+    VLANGS.map((lang) => ({
+      url: vabs(vpath(lang, page)),
+      lastModified: VOLANTE_UPDATED,
+      changeFrequency: page === "home" ? ("monthly" as const) : ("yearly" as const),
+      priority: page === "home" ? 0.8 : page === "support" ? 0.3 : 0.2,
+      alternates: { languages: valternates(page) },
+    })),
+  )
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const defaultModified = new Date("2026-07-11")
   return [...routes, ...pickRoutes()].map((r) => ({
@@ -86,5 +102,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
           },
         }
       : {}),
-  }))
+  })).concat(volanteRoutes())
 }
