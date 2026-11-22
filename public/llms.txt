@@ -1,6 +1,6 @@
 # trempido.com
 
-> Portfolio of iOS apps by indie developer Pau Pidelaserra: Kari (AI charisma coach by voice), Pick (weekly meal planner on a budget), Restory (AI photo restoration) and Umi (birthday reminders).
+> Portfolio of iOS apps by indie developer Pau Pidelaserra: Kari (AI charisma coach by voice), Pick (weekly meal planner on a budget), Rondi (driving theory test practice for five countries), Restory (AI photo restoration) and Umi (birthday reminders).
 
 ## Kari — AI charisma coach, by voice
 
@@ -33,6 +33,29 @@ Content: 349 dinner recipes in English and Spanish, with real ingredients, step-
 - [Privacy policy](https://www.trempido.com/pick/privacy)
 - [Terms of use](https://www.trempido.com/pick/terms)
 - [App Store](https://apps.apple.com/app/id6794273453): download Pick for iPhone
+
+## Rondi — driving theory test practice for five countries
+
+Rondi is an iPhone app (iOS 17+) for preparing the car driving theory test in five countries: Spain, Germany, the United Kingdom, Italy and the Netherlands. Each country has its own lessons, questions and road signs, written by Rondi and checked against that country's rules. It is an independent study tool by TREMPIDO S.L.: the questions are Rondi's own, not the official ones (in Germany it is not the official TÜV | DEKRA catalogue; for the UK it does not include the hazard perception video clips), and it does not promise a pass. Not published yet: coming soon to the App Store. Previously announced under the working name "Volante".
+
+Content and exam formats (official format → what Rondi includes):
+- Spain (DGT, permiso B): 30 questions with 3 options, 30 minutes, 3 mistakes at most → 789 questions, 32 lessons, 211 road signs
+- Germany (Theorieprüfung Klasse B): 30 questions scored in error points, 10 error points at most, two wrong 5-point questions fail → 752 questions, 37 lessons, 267 road signs
+- United Kingdom (car theory test, multiple-choice part): 50 questions, 57 minutes, pass mark 43 → 743 questions, 36 lessons, 229 road signs
+- Italy (quiz patente B): 30 true/false statements, 20 minutes, 3 mistakes at most → 1,536 true/false statements, 43 lessons
+- Netherlands (CBR theorie-examen auto): 50 questions including hazard perception, 30 minutes, pass mark 44 → 750 questions, 36 lessons, 202 road signs, 150 drawn hazard-perception (gevaarherkenning) situations
+
+Features: short lessons (4 to 8 minutes) with real photos, questions corrected and explained on the spot, mock tests in the real exam format, a road signs game, a mistakes revision list, a 10-minute daily plan with a streak, and an AI coach that answers from the lessons of the chosen country (needs an internet connection). No account: progress stays on the iPhone. Free part (first block of lessons, 3 mock tests in total, practice by topic, 2 rounds of the signs game of 10 signs each, the sign catalogue); the rest needs Rondi Pro: "Until you pass", a one-time purchase with no renewal, or a monthly or weekly auto-renewing subscription. Prices are shown in the app before you confirm.
+
+- [Rondi overview (English)](https://www.trempido.com/rondi): what Rondi is, the exam table and the FAQ
+- [Rondi en español](https://www.trempido.com/rondi/es): test DGT y teórico del carnet de conducir
+- [Rondi auf Deutsch](https://www.trempido.com/rondi/de): Führerschein-Theorie, Theorieprüfung Klasse B
+- [Rondi in italiano](https://www.trempido.com/rondi/it): quiz patente B ed esame di teoria
+- [Rondi in het Nederlands](https://www.trempido.com/rondi/nl): auto theorie examen, CBR theorie oefenen
+- [Rondi llms.txt](https://www.trempido.com/rondi/llms.txt): the detailed machine-readable file for Rondi
+- [Support](https://www.trempido.com/rondi/support)
+- [Privacy policy](https://www.trempido.com/rondi/privacy)
+- [Terms of use](https://www.trempido.com/rondi/terms)
 
 ## Other apps
 

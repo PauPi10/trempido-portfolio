@@ -22,6 +22,13 @@ const nextConfig = {
       { source: '/cumpli/privacy', destination: '/umi/privacy', permanent: true },
       { source: '/cumpli/terms', destination: '/umi/terms', permanent: true },
 
+      // volante → rondi (the app was renamed 19-nov-2026). The TestFlight build
+      // and App Store Connect still link /volante…; same slugs under /rondi.
+      { source: '/volante', destination: '/rondi', permanent: true },
+      { source: '/volante/:path*', destination: '/rondi/:path*', permanent: true },
+      // the old brand assets were referenced as og:image of the /volante pages
+      { source: '/images/volante/og-:lang.jpg', destination: '/rondi/og/og-:lang.jpg', permanent: true },
+
       // www.karicoach.app → apex
       {
         source: '/:path*',
