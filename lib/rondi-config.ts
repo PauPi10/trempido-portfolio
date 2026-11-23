@@ -21,7 +21,7 @@ export const RONDI_BASE_PATH = "/rondi"
 export const RONDI_ORIGIN = "https://www.trempido.com"
 
 /** ISO date of the last content change of the Rondi pages (shown on the page, sitemap, JSON-LD). */
-export const RONDI_UPDATED = "2026-11-22"
+export const RONDI_UPDATED = "2026-11-23"
 
 export const RONDI_BRAND = {
   /** Rounded app icon (SVG) used in the nav, footer and as favicon. */

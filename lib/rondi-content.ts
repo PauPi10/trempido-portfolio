@@ -28,9 +28,17 @@ export const RONDI = {
   updated: RONDI_UPDATED,
   minIos: "17.0",
   company: {
-    name: "TREMPIDO SL",
+    name: "TREMPIDO S.L.",
     legalName: "TREMPIDO S.L.",
     taxId: "B75830257",
+    // ── PENDIENTE (Pau): datos que la LSSI-CE art. 10.1.b y un Impressum esperan y que
+    //    no se pueden inventar. Cada línea sale en el aviso legal en cuanto deje de estar vacía.
+    /** Registro Mercantil, p. ej. "Registro Mercantil de Barcelona, tomo …, folio …, hoja B-…, inscripción 1.ª". */
+    registry: "",
+    /** Administrador/a (persona que representa a la sociedad), p. ej. "Pau Pidelaserra (administrador único)". */
+    representative: "",
+    /** NIF-IVA intracomunitario, solo si la sociedad está dada de alta en el ROI/VIES, p. ej. "ESB75830257". */
+    vatId: "",
     address: "Carrer Nil Fabra 16, Escalera A, Ático 2ª, 08012 Barcelona, España",
     street: "Carrer Nil Fabra 16, Escalera A, Ático 2ª",
     postalCode: "08012",
@@ -84,11 +92,11 @@ type L5 = Record<RLang, string>
 
 /** Date of the last update, written out in each language. */
 export const UPDATED_LABEL: L5 = {
-  en: "22 November 2026",
-  es: "22 de noviembre de 2026",
-  de: "22. November 2026",
-  it: "22 novembre 2026",
-  nl: "22 november 2026",
+  en: "23 November 2026",
+  es: "23 de noviembre de 2026",
+  de: "23. November 2026",
+  it: "23 novembre 2026",
+  nl: "23 november 2026",
 }
 
 // ── countries ────────────────────────────────────────────────────────────────
@@ -460,8 +468,8 @@ export const LANDING: Record<RLang, Landing> = {
 
   // ───────────────────────────────── ESPAÑOL ─────────────────────────────────
   es: {
-    title: "Rondi: test DGT y teórico del carnet de conducir en iPhone",
-    description: "Prepara el examen teórico del permiso B en el iPhone: clases cortas, test DGT con corrección explicada y simulacros con el formato real. Cinco países.",
+    title: "Rondi: test tipo DGT y teórico del carnet en iPhone",
+    description: "Prepara el examen teórico del permiso B en el iPhone: clases cortas, test tipo DGT con corrección explicada y simulacros con el formato real. Cinco países.",
     ogAlt: "Rondi, el teórico del carnet de conducir en cinco países",
     eyebrow: "Teórico del carnet de conducir · app para iPhone",
     h1: "Prepara el teórico del carnet de conducir",
